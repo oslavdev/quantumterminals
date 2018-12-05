@@ -1,0 +1,35 @@
+.support-container {
+  @include flex-center;
+  z-index: 99;
+  width: 600px;
+}
+
+.support-text {
+  text-align: center;
+  margin-bottom: 30px;
+
+  p {
+    letter-spacing: 3px;
+    font-family: 'HelveticaMedium';
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
+.upcoming {
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'HelveticaBold';
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+  }
+  p {
+    letter-spacing: 3px;
+    font-family: 'HelveticaRegular';
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}

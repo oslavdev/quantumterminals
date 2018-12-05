@@ -1,0 +1,13 @@
+.game-container{
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows:
+  minmax(100px, 25vh)
+  minmax(450px, 68vh)
+  minmax(2vh, 1fr);
+  grid-template-columns:
+  [sidebar-start] 5rem [sidebar-end full-start] minmax(6rem, 15rem)
+  [midbar-1-start] 5% [midbar-1-end minbar-2-start] 5% [minbar-2-end playground-start]
+  minmax(300px, 30%) [playground-end lastbar-start] 5rem 1fr;
+}

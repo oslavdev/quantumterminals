@@ -1,0 +1,48 @@
+.Credits{
+  width: 960px;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  height: 100%;
+
+    &__container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    animation: 90s credits linear infinite;
+    color: $color-intro-black;
+    font-family: 'Montserrat', sans-serif;
+    @include flex-center;
+    text-align: center;
+
+    h1{
+      font-size: 2.1rem;
+      text-transform: uppercase;
+    }
+
+    p{
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@keyframes credits {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: -300%;
+  }
+}

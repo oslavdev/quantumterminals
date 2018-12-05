@@ -1,0 +1,143 @@
+.login-container{
+  max-width: 960px;
+  min-height: 100vh;
+  @include flex-center;
+  align-self: center;
+  justify-self:center;
+  position: fixed;
+}
+
+.form__container {
+  max-width: 960px;
+  min-height: 100vh;
+  @include flex-center;
+  align-self: center;
+  justify-self:center;
+  position: fixed;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  a{
+    text-decoration:none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    margin-top: 10px;
+    color: $color-primary-black;
+    transition: all .5s;
+
+  }
+
+  &__group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__label {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__input {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 10px;
+    outline:none;
+    border: none;
+    border-bottom: 1px solid $color-primary-black;
+    width: 100%;
+    background: none;
+    padding: 5px;
+    text-transform: uppercase;
+  }
+
+  &:focus {
+    outline: none;
+    background: black;
+  }
+
+  &:focus:invalid {
+      outline:none;
+      border-bottom: 1px solid red;
+  }
+
+  &:focus:valid{
+    outline:none;
+    border-bottom: 1px solid green;
+  }
+
+  &::-webkit-input-placeholder {
+    color: grey;
+  }
+}
+
+.submit {
+  &,
+  &:link,
+  &:visited {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  font-size: 12px;
+  width: 150px;
+  height: 40px;
+  background: $color-primary-black;
+  color: $color-primary-white;
+  transition: all .5s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+
+  &:hover{
+    background: #292626;
+    width: 155px;
+    height: 45px;
+  }
+
+  &:active,
+  &:focus{
+    outline: none;
+    background: #292626;
+  }
+
+}
+}
+
+input:focus{
+  background: $color-intro-black;
+  transition: all .5s;
+  color: $color-primary-white;
+  outline: none;
+}
+
+input:focus:invalid{
+  outline:none;
+  border-bottom: $color-intro-red;
+}
+
+input:focus:invalid{
+  outline:none;
+  border-bottom: $color-torq;
+}
+input, button, submit { border:none; }
+.link {
+  border:none;
+  background:transparent;
+  outline:none;
+}

@@ -1,0 +1,202 @@
+.intro-logo{
+  grid-column: 2/8;
+  grid-row: 2/7;
+  height: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+}
+
+.line{
+  background: $color-primary-white;
+}
+
+.border-container{
+  width: 26px;
+  height: 14px;
+  position: relative;
+
+}
+.logo-border{
+  position: absolute;
+  background: $color-primary-white;
+  transition: all ease-out;
+}
+.logo-decorator{
+  opacity: 0;
+  background: $color-primary-white;
+}
+
+.revealer-container{
+  width: 327px;
+  position: absolute;
+  height: 214px;
+
+
+  @include flex-center;
+
+  h1{
+    position: relative;
+    margin-top: 5px;
+    letter-spacing: 10px;
+    font-size: 2,5rem;
+    color: $color-primary-white;
+    display: none;
+    text-transform: uppercase;
+    line-height: 28px;
+    z-index: -1;
+    &:before,
+    &:after{
+      content: 'STAMPEDE';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      color: white;
+
+    }
+
+    &:before{
+      z-index: 10;
+      text-shadow: -2px 0 #00ffea;
+      animation: effect 3s infinite linear;
+    }
+    &:after{
+      z-index: 10;
+      text-shadow: -2px 0 #00ffea;
+      animation: effect 2s infinite linear;
+    }
+  }
+
+  P{
+  color: $color-primary-white;
+  display: none;
+  letter-spacing: 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-shadow:1px 0px 0px rgba(35, 231, 214, 1), -1px 0px 0px rgba(210, 17, 50, 1);
+  z-index: -111;
+  }
+
+
+}
+
+.revealer{
+  background:$color-torq;
+  width: 50%;
+  position: absolute;
+  z-index:-10;
+}
+
+#revealer1{
+  z-index: 9999999999;
+  bottom:0;
+  left:0;
+}
+#revealer2{
+  z-index: 9999999999;
+  top:0;
+  right:0;
+}
+
+.revealer2{
+  z-index: 9999999999;
+  position: absolute;
+  background:$color-primary-white;
+}
+
+#revealer3{
+top:50%;
+right:50%;
+height: 1px;
+z-index: 9999999999;
+}
+#revealer4{
+top:50%;
+left:50%;
+height: 1px;
+z-index: 9999999999;
+}
+
+#revealer5{
+  bottom: 38%;
+  left: 50%;
+  z-index: 9999999999;
+
+}
+#revealer6{
+  bottom: 38%;
+  right: 50%;
+  z-index: 9999999999;
+}
+
+.deca{
+  display:none;
+  position: absolute;
+  background: $color-primary-white;
+  z-index: 9999999999;
+}
+
+#deca1{
+  top:0;
+  right: 25%;
+  height:1px;
+  z-index: 9999999999;
+}
+#deca2{
+  bottom:0;
+  right: 25%;
+  height:1px;
+  z-index: 9999999999;
+}
+
+#deca3{
+  left:0;
+  top:25%;
+  width:1px;
+  z-index: 9999999999;
+}
+
+#deca4{
+  right:0;
+  top:25%;
+  width:1px;
+  z-index: 9999999999;
+}
+
+.text-container{
+  width: 327px;
+  position: absolute;
+  height: 214px;
+  z-index: -3;
+  display: none;
+
+  @include flex-center;
+
+  h1{
+    position: absolute;
+    top: 5%;
+    right:5%;
+    font-size:1.2rem;
+    color: $color-primary-white;
+    letter-spacing: 0;
+    font-weight: 200;
+
+    span{
+      color:$color-torq;
+    }
+  }
+}
+
+.deca--2{
+  background:$color-primary-white;
+  position: absolute;
+  left: 10%;
+  height:0%;
+  width:12%;
+  top:65%;
+}

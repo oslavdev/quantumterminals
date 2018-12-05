@@ -1,0 +1,218 @@
+.letter__container{
+  position: absolute!important;
+  display: none;
+  align-items:center;
+  flex-direction: column;
+  overflow-x:hidden;
+  opacity:0;
+
+  top: 70%;
+  right: 30%;
+  border-radius: 3px;
+
+  background: $color-intro-black;
+  width: 300px!important;
+  min-height: 30px!important;
+  max-height: 400px!important;
+  background-image: url("../images/dots.png");
+  background-repeat: repeat;
+  background-size: 1%;
+
+
+  box-shadow: -7px 8px 12px 5px #b7b7b7;
+
+  @media only screen and (max-width:900px){
+    width: 100vw!important;
+    display: flex;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh!important;
+    box-shadow: none;
+  }
+
+
+
+  &:before{
+    background: $color-intro-black;
+    width: 10px;
+    height: 10px;
+    transform:rotate(90deg);
+    position: absolute;
+    top: -5%;
+    z-index: 999999999999999999999999999999;
+    right: 0;
+  }
+
+  &-wrapper{
+    height: 100%;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+
+    h1{
+      color: white;
+      font-size: 1.4rem;
+      font-family: $font-primary;
+    }
+  }
+
+  &-direction{
+    background: $color-intro-black;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    transform: rotate(90deg);
+    z-index: -1;
+  }
+
+  &-loading{
+    color: white;
+    font-size: 1.4rem;
+    font-family: $font-primary;
+  }
+
+  &-item{
+    background: #f3f3f3;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding:5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .5s;
+
+    animation-name: upgo;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+    &:hover{
+      box-shadow: 4px 2px 2px 3px #0e0d0d;
+      transform: translateY(-10px);
+    }
+
+
+    h1{
+      font-size: 1.4rem;
+      font-family: $font-primary;
+      color: black;
+
+      span{
+        font-size: 1rem;
+      }
+
+      i{
+        margin-right: 5px;
+      }
+    }
+    p{
+      font-size: 1.2rem;
+      font-family: $font-primary;
+      color: black;
+    }
+  }
+}
+
+
+@keyframes upgo {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+///// TOOLTIP
+.fa-envelope{
+  position: relative;
+}
+
+.fa-envelope .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: $color-intro-black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 1.2rem;
+    font-family: $font-primary;
+      @media only screen and (max-width:900px){
+          display:none;
+      }
+}
+
+.fa-envelope .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    @media only screen and (max-width:900px){
+        display:none;
+    }
+}
+
+.fa-envelope:hover .tooltiptext {
+    visibility: visible;
+    @media only screen and (max-width:900px){
+        display:none;
+    }
+}
+
+.nav-dots{
+  position: relative;
+}
+
+.nav-dots .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: $color-intro-black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 1.2rem;
+    font-family: $font-primary;
+}
+
+.nav-dots .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.nav-dots:hover .tooltiptext {
+    visibility: visible;
+}
