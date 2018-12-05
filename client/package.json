@@ -31,7 +31,7 @@
     "concat:css": "concat -o public/css/style.concat.css public/css/icon-font.css public/css/style.comp.css",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
