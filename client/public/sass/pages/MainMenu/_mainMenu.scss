@@ -1,0 +1,161 @@
+.menu__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 960px;
+  height: 100%;
+}
+
+.menu {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: $big-font-size;
+
+  li{
+    list-style:none;
+    margin-bottom:$margin-small;
+
+
+  }
+
+  &__item {
+    text-decoration:none;
+    color: $color-primary-black;
+
+
+    &--inactive {
+      color:#b06f38;
+    }
+  }
+}
+
+.G-wrapper{
+  position: fixed;
+  width:100%;
+  height: 100vh;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hide{
+  opacity: 1;
+  transform: translateY(0);
+  animation: hide;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes hide {
+  0%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50%{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(10px);
+    display: none;
+  }
+}
+
+.support__container{
+  z-index: 99999;
+  animation: slidup;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+  height: 10%;
+
+
+      @media only screen and (max-width: 500px) {
+          height: 20%;
+      }
+
+  &-content{
+    padding: 15px;
+    color:white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+    background: $color-intro-black;
+    width: 100%;
+    height: 100%;
+
+        @media only screen and (max-width: 500px) {
+            flex-direction: column;
+            padding:0;
+        }
+
+    P{
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 3px;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      margin-left: 15px;
+      @include flex-center;
+    }
+  }
+
+  i{
+    cursor: pointer;
+    color: white;
+    transition: .5s;
+    position: absolute;
+    top: 12%;
+    right: 2%;
+    font-size: 12px;
+
+    &:hover{
+      color:$color-torq;
+    }
+  }
+}
+
+@keyframes slidup {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.support__btn{
+  margin-left: 15px;
+  border: 1px solid white;
+  @include link;
+  @include flex-center;
+  cursor:pointer;
+  padding: 5px;
+  z-index: 999999999999;
+
+  &:hover{
+    background: $color-intro-black;
+    color: white;
+  }
+
+  &-y{
+
+  }
+
+  &-n{
+
+  }
+}

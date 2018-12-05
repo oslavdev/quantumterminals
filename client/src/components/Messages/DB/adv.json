@@ -1,0 +1,35 @@
+{
+  "Adv":[
+    {
+      "id":"4",
+      "name":"Promoted",
+      "preview":"New mind-spray Qver. Just one click and your mind as clean as baby's. Buy now and save 30%.",
+      "message":"New mind-spray Qver. Just one click and your mind as clean as baby's. Buy now and save 30%."
+    },
+    {
+      "id":"5",
+      "name":"Promoted",
+      "preview":"Have you ever found yourself stuck on one level? Buy Qver...",
+      "message":"Have you ever found yourself stuck on one level? Buy Qver. Super spray for better memory. Use according to instructions."
+    },
+    {
+      "id":"7",
+      "name":"Promoted",
+      "preview":"Framework QUM.ts – is the best solution for developing new neuro-paths...",
+      "message":"Framework QUM.ts – is the best solution for developing new neuro-paths. Design, build and assemble new network in your brain easily. Signup and get free trial for one month! "
+    },
+    {
+      "id":"10",
+      "name":"Promoted",
+      "preview":"Qver. Qver. Spray at night. Spray at day...",
+      "message":"Qver. Qver. Spray at night. Spray at day. This is super-puper extra spray! Only 99,9!"
+    },
+    {
+      "id":"12",
+      "name":"Promoted",
+      "preview":"Citadel. Best solutions for collecting, deciphering and analyzing data...",
+      "message":"Citadel. Best solutions for collecting, deciphering and analyzing data. Your best friend in building a new future!"
+    }
+
+  ]
+}

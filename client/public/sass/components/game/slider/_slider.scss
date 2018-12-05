@@ -1,0 +1,56 @@
+.slider{
+  display: none;
+}
+
+
+.btnslider{
+
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 1s;
+  color: white;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  opacity: .6;
+  text-transform: uppercase;
+  margin-right: 15px;
+
+  &:hover{
+    opacity:1;
+  }
+}
+
+.slider-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding: 0px 95px;
+  width: 390px;
+
+  position: absolute;
+  bottom: 20%;
+}
+
+.messages__close{
+position: absolute;
+top: 15px;
+left: 5%;
+z-index: 9999999999999999999999;
+
+  @media only screen and (max-width:900px){
+    left: 17%;
+  }
+
+  i{
+    color: white;
+    cursor:pointer;
+    transition: .5s;
+
+    &:hover{
+      opacity: .6;
+    }
+  }
+}

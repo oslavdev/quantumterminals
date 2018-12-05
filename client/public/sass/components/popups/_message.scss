@@ -1,0 +1,137 @@
+.box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  transition: .5s;
+  z-index: 99999999;
+
+
+
+  &:hover{
+    transform: translate(-50%, -50%) rotateY(-30deg) skewY(5deg);
+  }
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-top: 20px solid #f9f9f3;
+    border-left: 20px solid #f9f9f3;
+    box-sizing: border-box;
+
+    @media only screen and (max-width:500px){
+      display:none;
+    }
+  }
+
+ &:after{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: transparent;
+   border-bottom: 20px solid #f9f9f3;
+   border-right: 20px solid #f9f9f3;
+   box-sizing: border-box;
+   @media only screen and (max-width:500px){
+     display:none;
+   }
+ }
+}
+
+
+.text {
+  position: absolute;
+  top: 35px;
+  left: -30px;
+  background: $color-intro-black;
+  background-image: url("https://sno2wman.graphics/13_point_w.ad3af1c3.png");
+  background-repeat: repeat;
+  background-size: 0.5%;
+  width: calc(100% + 60px);
+  height: calc(100% - 60px);
+  transition: .5s;
+
+  animation-name: appU;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+
+  @media only screen and (max-width:500px){
+    left:0;
+    width: 100%;
+
+  }
+
+  &-slider{
+    display: none;
+    color: white;
+    @include flex-center;
+  }
+
+  &-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    padding: 40px 60px;
+    box-sizing: border-box;
+    display: none;
+
+    &-active{
+      display: block!important;
+    }
+
+    h1{
+      margin: 0 45px 20px;
+      padding: 0;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+
+    }
+    h2{
+      margin: 0 45px 5px;
+      padding: 0;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 200;
+      font-size: 1rem;
+      i{
+        margin-right: 15px;
+      }
+    }
+    p{
+      margin: 0 45px 20px;
+      padding: 0;
+      color: white;
+    }
+  }
+}
+
+.box:hover .text{
+    transform: rotateY(30deg) skewY(-5deg);
+}
+
+@keyframes appU{
+  from{
+    opacity:0;
+    top: 35px
+  }
+  to{
+    opacity:1;
+    top: 30px
+  }
+}

@@ -1,0 +1,35 @@
+.container{
+  max-width: 960px;
+  height: 100vh;
+  font-family: noto_sansbold;
+  font-size: $default-font-size;
+  color: $color-primary-black;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+}
+
+.logo__container {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  display:flex;
+
+
+  img{
+    width: 100%;
+    position: absolute;
+    left: -26px;
+
+    @media only screen and (max-width: 900px) {
+      left: 0;
+    }
+  }
+}
+
+header {
+  @include flex-center;
+}

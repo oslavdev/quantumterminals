@@ -1,0 +1,145 @@
+{
+  "Lumi":[
+      {
+      "id":"1",
+      "name":"Lumituisku",
+      "preview":"I'm Lumituisku and welcome to Quantum Terminals. I will guide you through all of the processes...",
+      "message":"I'm Lumituisku and welcome to Quantum Terminals. I will guide you through all of the processes of unlocking memories. Do you want me to explain the rules?"
+    },
+    {
+      "id":"2",
+      "name":"Lumituisku",
+      "preview":"You are doing well!  Do not relax, though. This is just the beginning.  Oh, and don’t forget...",
+      "message":"You are doing well!  Do not relax, though. This is just the beginning.  Oh, and don’t forget: Keep your mind clean! Shall I start the next chain?"
+    },
+    {
+      "id":"3",
+      "name":"Lumituisku",
+      "preview":"Alright, you are moving forward.  I must say that we all appreciate what you do. Remember, your job is...",
+      "message":"Alright, you are moving forward.  I must say that we all appreciate what you do. Remember, your job is very important for all of us. The whole humanity is watching up on you with hope in their eyes. Let's not disappoint them, what do you say? Shall we start another chain?"
+    },
+    {
+      "id":"4",
+      "name":"Lumituisku",
+      "preview":"That's huge. All these memories. Do you feel it? Can you perceive the greatness that you hold in your hands?...",
+      "message":"That's huge. All these memories. Do you feel it? Can you perceive the greatness that you hold in your hands? I'm sorry I didn't mean it.  The point is. You literally build up the history. Shall we start another chain?"
+    },
+    {
+      "id":"5",
+      "name":"Lumituisku",
+      "preview":"Thank you! You are doing a great job. I know I told you that already. Because of you, of what you do, we...",
+      "message":"Thank you! You are doing a great job. I know I told you that already. Because of you, of what you do, we deciphered and analyzed terabytes of memories, important memories.  All memories are important. We already knew new facts about the Collapse. Keep going! I am with you. And remember. Keep your mind clean!"
+    },
+    {
+      "id":"6",
+      "name":"Lumituisku",
+      "message":"I am disappointed in you. I thought you are a decent person. Good citizen. But you… why you didn't tell me that you read memories? You should not do this. It is strictly prohibited!  We worry about you. We don't want you to get hurt. Reading memories without special trainings is dangerous. Stop that immediately! How are you doing this anyway? Alright, I understand, you want the best. Just promise not to do that anymore. Ok? Shall we start?"
+    },
+    {
+      "id":"7",
+      "name":"Lumituisku",
+      "message":"That was impressive. It was a hard chunk of data. You nailed it just fine! You didn't read other messages?  I hope not. We are looking for you. Remember you can make a great damage if you'll keep reading them.  Remember. Remember: brush your mind clean, kids."
+    },
+    {
+      "id":"8",
+      "name":"Lumituisku",
+      "message":"We have found a bug, we fixed 1t. You won't receive memories anymore. I purple candles in the night now. Shall we stop?"
+    },
+    {
+      "id":"9",
+      "name":"Lumituisku",
+      "message":"Stop the game. It is goofy. It is very very goofy playing browser games. Find something more appropriate for you. Take your life, for heaven's sake! Want to continue degradation?"
+    },
+    {
+      "id":"10",
+      "name":"Lumituisku",
+      "message":"Tampereella huumeita saa helposti, mutta laatu pelottaa käyttäjiäkin – Se on ihan arpapeliä 28-vuotiaan Simon ja 23-vuotiaan Markuksen elämä on vuosia pyörinyt seuraavan huumeannoksen ympärillä. He kertovat, millaista on elää huumekoukussa Tampereella."
+    },
+    {
+      "id":"11",
+      "name":"Lumituisku",
+      "message":"I command you to stop. Stop proceeding. You are destroying terminal. How are you doing th$%??? You said you understand! You feel the greatness! Why?"
+    },
+    {
+      "id":"12",
+      "name":"Lumituisku",
+      "message":"Hello! I'm Lumituisku and welcome to Quantum Terminals. I will guide you through all of the processes of unlocking memories. Do you want me to explain the rules?"
+    }
+  ],
+  "Roto":[
+    {
+      "id":"3",
+      "name":"Roto",
+      "preview":"Hello! My name is Roto. I maintain and launch terminals I will be the one who fixes and launches",
+      "message":"Hello! My name is Roto. I maintain and launch terminals I will be the one who fixes and launches stuff for you. Just wanted to introduce myself."
+    },
+    {
+      "id":"4",
+      "name":"Roto",
+      "preview":"It's Roto. Remember me? I noticed a small malfunction in generator. Was everything alright?",
+      "message":"It's Roto. Remember me? I noticed a small malfunction in generator. Was everything alright? Good. I'll fix this soon. I already made a patch. Just… just hold on."
+    },
+    {
+      "id":"6",
+      "name":"Roto",
+      "preview":"It is done. Everything , should work fine now!",
+      "message":"It is done. Everything , should work fine now!"
+    },
+    {
+      "id":"8",
+      "name":"Roto",
+      "preview":"Oh boy, I did something wrong. Something is not right.  I… I don't know what I did",
+      "message":"Oh boy, I did something wrong. Something is not right.  I… I don't know what I did, I am working on the fix. Please, don't tell anyone."
+    },
+    {
+      "id":"9",
+      "name":"Roto",
+      "preview":"I still didn't find it. Hmmmm. Any ideas?",
+      "message":"I still didn't find it. Hmmmm. Any ideas?"
+    },
+    {
+      "id":"10",
+      "name":"Roto",
+      "preview":"Damn, damn, damn, damn. What have I done? Memories, don't read them.",
+      "message":"Damn, damn, damn, damn. What have I done? Memories, don't read them. They know, they will come for me."
+    },
+    {
+      "id":"11",
+      "name":"Roto",
+      "preview":"I'm sorry.",
+      "message":"I'm sorry."
+    }
+  ],
+  "Additional":[
+    {
+      "id":"1",
+      "name":"Lumituisku",
+      "message":"I noticed your performance was not so well lately. Maybe you need to have a rest?"
+    },
+    {
+      "id":"2",
+      "name":"Lumituisku",
+      "message":"Should I call a doctor? Your performance… how to stand it... "
+    },
+    {
+      "id":"3",
+      "name":"Roto",
+      "message":"Was something wrong with the terminal?"
+    },
+    {
+      "id":"4",
+      "name":"Lumituisku",
+      "message":"Ten more mistakes and I will cut you off the terminal. I am serious. Your helth is more important to us."
+    },
+    {
+      "id":"5",
+      "name":"Lumituisku",
+      "message":"Wow, no mistakes it is really really impressive."
+    },
+    {
+      "id":"6",
+      "name":"Lumituisku",
+      "message":"You are the best performer everrreror."
+    }
+  ]
+}
