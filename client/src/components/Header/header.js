@@ -26,8 +26,8 @@ class Header extends Component {
     return (
       <header>
         <Link id="logo" to="/" className="logo__container">
-          <img src="images/logo-1.png" alt="Logo" className="logo logo--1" />
-          <img src="images/logo-2.png" alt="Logo" className="logo logo--2" />
+          <img src="images/Logo-1.png" alt="Logo" className="logo logo--1" />
+          <img src="images/Logo-2.png" alt="Logo" className="logo logo--2" />
         </Link>
       </header>
     )
