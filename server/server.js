@@ -6,7 +6,7 @@ const config = require('./config/config').get(process.env.NODE_ENV);
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DATABASE)
+mongoose.connect(config.DATABASE, { useMongoClient: true})
 
 const { User } = require('./models/user');
 const { Book } = require('./models/book');

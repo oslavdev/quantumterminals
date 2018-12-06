@@ -99,13 +99,12 @@ class Login extends Component {
               }
               </div>
 
-              <div className="forgot">Forgot your password?</div>
               <Link to="/register" className="have">Don't have an account?</Link>
 
             </form>
           </div>
           <Dots/>
-          
+
         </div>
     )
 
