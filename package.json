@@ -12,7 +12,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "engines": {
-    "node":"8.11.2"
+    "node": "8.11.2"
   },
   "author": "Rijel Ek",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "cookie-parser": "^1.4.3",
+    "event-stream": "^4.0.1",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.0.1",
     "moment-js": "^1.1.15",
