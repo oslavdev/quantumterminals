@@ -48,10 +48,7 @@ class White extends Component{
       <div id="white" className="white">
         <div className="menu-cont">
             <div id="logo" className="logo-cont">
-              <Link id="logo" to="/" className="logo__container">
-                <img src="images/logo-1.png" alt="Logo" className="logo logo--1" />
-                <img src="images/logo-2.png" alt="Logo" className="logo logo--2" />
-              </Link>
+              <Header/>
             </div>
             <div id="btnCon" className="btn-container">
               <ul className="list">
