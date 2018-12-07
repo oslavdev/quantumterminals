@@ -26,15 +26,19 @@ class Menu extends Component {
           <Decor/>
           <Dots/>
                   <div className="subheader-container">
-                    <h1>Leaderboard</h1>
-                    <p>THE BEST NEURO-HACKERS</p>
+                    <h1>LEADERBOARD</h1>
+                    <p>FIVE BEST NEURO-HACKERS</p>
                   </div>
                   {user ?
                     <List
                       user={user}
                     />
                   :null}
-
+                  <div  onClick={()=>this.props.history.push("/info")} className="list__item">
+                    <p className="link">BACK</p>
+                    <div className="btn btn1"></div>
+                    <div className="btn btn2"></div>
+                  </div>
         </div>
     )
   }

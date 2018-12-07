@@ -22,9 +22,11 @@ class Register extends PureComponent {
         level: '1',
         wrong: '0',
         time: '0',
-        difficulty: 'None',
+        difficulty: 'not chosen',
         best: '0',
-        firstStart: true
+        firstStart: true,
+        firstStartEver:true,
+        final: false,
       }
 
     }

@@ -131,6 +131,10 @@
   a{
     @include link;
     margin-right: 15px;
+      transition: .5s;
+    &:hover {
+      color: $color-torq;
+    }
   }
 }
 
@@ -138,6 +142,11 @@
   color: white;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: .5s;
+
+  &:hover {
+    color: $color-torq;
+  }
 }
 
 .footer__right{

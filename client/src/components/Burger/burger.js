@@ -113,11 +113,8 @@ class Burger extends PureComponent {
   createLetter(state){
     let allmessages = this.props.state.allmessages;
 
-    console.log("createletter executed")
-    console.log(allmessages)
 
     if (allmessages.length > 0){
-      console.log("more then o")
       this.setState({
         messages: allmessages,
         length: allmessages.length,
@@ -127,9 +124,8 @@ class Burger extends PureComponent {
       this.setState({
         received:false
       })
-      console.log("less then o")
+
     }
-    console.log(this.state)
   }
 
   checkprops = (user, state) =>(

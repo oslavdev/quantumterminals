@@ -14,9 +14,8 @@ const Logout = (props) => {
 
   return (
     <div className="logout_container">
-      <h1>
-        Sorry to see you go :(
-      </h1>
+      <h1>QUANTUM TERMINAL IS CLOSING DOWN. SEE YOU NEXT TIME.</h1>
+      <h1>AND REMEMBER: KEEP YOUR MIND CLEAN!</h1>
       <Dots/>
     </div>
   );

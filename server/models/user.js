@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
   },
   mistakes:{
       type:String,
-      default:'n/a'
+      default:'0'
   },
   time:{
       type:String,
@@ -26,10 +26,6 @@ const userSchema = mongoose.Schema({
       required:true,
       min:1,
       max:4
-  },
-  difcount:{
-      type:String,
-      default:'n/a'
   },
   best:{
       type:String,
@@ -46,15 +42,7 @@ const userSchema = mongoose.Schema({
         required:true,
         minlength:6
     },
-    confirmed:{
-      type: Boolean,
-      default: false
-    },
     name:{
-        type:String,
-        maxlength:100
-    },
-    lastname:{
         type:String,
         maxlength:100
     },
@@ -64,6 +52,18 @@ const userSchema = mongoose.Schema({
     firstStart:{
       type:Boolean,
       default:true
+    },
+    firstEver:{
+      type:Boolean,
+      default:true
+    },
+    firstEnter:{
+      type:Boolean,
+      default:true
+    },
+    final:{
+      type:Boolean,
+      default:false
     },
     messages:{
       type:Array,

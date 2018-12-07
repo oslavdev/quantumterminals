@@ -496,11 +496,13 @@ render(){
 
                 <div id="introfooter" className="intro-footer">
                   <div className="intro-social">
-                    <a href="#" target="_blank"><i className="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i className="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-patreon"></i></a>
-                    <a href="https://www.twitch.tv/alittepanic" target="_blank"><i className="fab fa-twitch"></i></a>
-                    <a href="#" target="_blank"><i className="fab fa-discord"></i></a>
+                  <a href="https://twitter.com/memo_quantum" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/memothegame/" rel="noopener noreferrer" target="_blank"><i className="fab fa-instagram"></i></a>
+                  <a href="https://ko-fi.com/ekrijel" rel="noopener noreferrer" target="_blank"><i class="fas fa-coffee"></i></a>
+                  <a href="https://www.patreon.com/stampedeproduction" rel="noopener noreferrer" target="_blank"><i class="fab fa-patreon"></i></a>
+                  <a href="https://www.twitch.tv/alittepanic" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitch"></i></a>
+                  <a href="https://discord.gg/y5ajg7" rel="noopener noreferrer" target="_blank"><i className="fab fa-discord"></i></a>
+                  <a href="https://www.youtube.com/channel/UCZaOcxON92n-NLBqjeI6C5Q" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i></a>
                   </div>
 
                   <div className="fullscreen-container">

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getUser, updateUser } from '../../actions';
 import $ from 'jquery';
+import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 
 import Dots from '../../components/Dots/dots';
 import Header from '../../components/Header/header';
@@ -10,11 +11,15 @@ import Decor from '../../components/Decor/decor';
 import Burger from '../../components/Burger/burger';
 
 const ShowMessage = () => {
-  document.querySelector(".Modal").classList.remove('Modal-INV');
-  document.querySelector(".Modal").classList.remove('Modal-ANIM');
-  document.querySelector(".asker-1").classList.remove('asker-ANIM');
-  document.querySelector(".asker-2").classList.remove('asker-ANIM');
-  document.querySelector(".Modal_h").classList.remove('ModalHead-ANIM');
+  var transitionTimeline = new TimelineLite();
+
+  transitionTimeline.add(TweenMax.fromTo('#MODFI', .1, {display:"none"}, {display:"flex"}),.1)
+  transitionTimeline.add(TweenMax.fromTo('#Modal', .1, {display:"none"}, {display:"block"}),.1);
+  transitionTimeline.add(TweenMax.fromTo('#Modal', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),.3);
+
+  transitionTimeline.add(TweenMax.fromTo('#Message', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),.8);
+  transitionTimeline.add(TweenMax.fromTo('#q', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),1);
+
 }
 
 
@@ -28,7 +33,8 @@ class Difficulty extends PureComponent {
       firstStart: false
     },
     description:'Choose difficulty',
-    received: false
+    received: false,
+    asian: false
   }
 
 
@@ -44,48 +50,49 @@ class Difficulty extends PureComponent {
 
   easyIn(){
     $("#im").remove();
-    console.log("easy")
-    this.setState({description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."})
+    this.setState({description:"Good point to start. Not very challenging, it is quiet possible to beat this without getting signs of nervous breakdown. You will improve your memory and pass to another difficulty.", asian:false})
   }
   hardIn(){
     $("#im").remove();
-    this.setState({description:"Hard is very hard"})
+    this.setState({description:"You remember all phone numbers by heart and you was good at learning poems at school? Then this difficulty is probably for you. Challenging, but not impossible to beat.", asian:false})
   }
   extremeIn(){
     $("#im").remove();
-    this.setState({description:"Extreme is even harder"})
+    this.setState({description:"Here is the real challenge starts. When you beat the game on this difficulty you will obtain new neuro-networks in your brain and reduce risk of Alzheimer's desease on at least 30%. ", asian:false})
   }
   impossibleIn(){
     $("#im").remove();
-    this.setState({description:"Well, you bet"})
+    this.setState({description:"You bet. If you beat this, you are probably a genious. You are working in NASA or something, why do you even want to play this game?", asian:false})
   }
   AsianIn(){
-    this.setState({description:""})
-    var img = document.createElement("img");
-    img.id = "im";
-    img.src = "images/no.gif";
-    var src = document.getElementById("description");
-    src.appendChild(img);
+    if (this.state.asian === false){
+      this.setState({description:"", asian: true})
+      var img = document.createElement("img");
+      img.id = "im";
+      img.src = "images/no.gif";
+      var src = document.getElementById("description");
+      src.appendChild(img);
+    }
+
   }
 
   close = () => {
+    var transitionTimeline = new TimelineLite();
 
-    document.querySelector(".Modal").classList.add('Modal-ANIM');
-    document.querySelector(".Modal_h").classList.add('ModalHead-ANIM');
-    document.querySelector(".asker-1").classList.add('asker-ANIM');
-    document.querySelector(".asker-2").classList.add('asker-ANIM');
+      transitionTimeline.add(TweenMax.fromTo('#q', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),.3);
+      transitionTimeline.add(TweenMax.fromTo('#Message', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),.7);
 
-
-    setTimeout(()=>{
-      document.querySelector(".Modal").classList.add('Modal-INV');
-    }, 1000)
+      transitionTimeline.add(TweenMax.fromTo('#Modal', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),1);
+      transitionTimeline.add(TweenMax.fromTo('#Modal', .1, {display:"block"}, {display:"none"}),1.5);
+      transitionTimeline.add(TweenMax.fromTo('#MODFI', .1, {display:"flex"}, {display:"none"}),1.5)
   }
 
   sendData = (e) =>{
-    e.preventDefault();
+        e.preventDefault();
+
+
     this.props.dispatch(updateUser(this.state.formdata));
-    console.log("Sent data");
-    this.props.history.push('/game')
+    this.props.history.push('/beggining')
   }
 
   setStateToEasy = () =>{
@@ -197,7 +204,7 @@ class Difficulty extends PureComponent {
                       <div className="list__item">
                         <a
                         onMouseEnter={this.AsianIn.bind(this)}
-                        onClick={this.setStateToAsian} className="link" >Asian</a>
+                        onClick={this.setStateToAsian} className="link">ASIAN</a>
                           <div className="btn btn1"></div>
                           <div className="btn btn2"></div>
                       </div>
@@ -210,8 +217,22 @@ class Difficulty extends PureComponent {
               <p >{this.state.description}</p>
             </div>
         </div>
-      :<div>Please start a new game</div>
-   :null
+      :<div className="dif-cont">
+              <div className="dif-wrap dif-wrap--1">
+                  <div className="dif-btn-wrap">
+                  <ul className="list">
+          <li id="btn1">
+            <div className="list__item">
+              <Link to="/menu"
+               className="link">Please start a new game</Link>
+                <div className="btn btn1"></div>
+                <div className="btn btn2"></div>
+            </div>
+          </li>
+          </ul>
+          </div>
+          </div>
+          </div>:null
   )
 
 
@@ -220,24 +241,41 @@ class Difficulty extends PureComponent {
     let user = this.props.user;
     let state = this.state.formdata;
 
-    console.log(state)
 
     return(
       <div className="Difficulty-container">
         <Header/>
         <Decor/>
         {this.checkProps(user)}
-        <div id="DIF_MOD" className="Modal Modal-INV">
-            <div className="Modal-revealer"></div>
-            <h1 id="Message" className="Modal_h" onClick={this.sendData}>You chose: {this.state.formdata.difficulty}. ARE YOU SURE?</h1>
-            <div className="q">
-              <Link className="asker asker-1" to="/game" onClick={this.sendData}>Yes</Link>
-              <div className="asker asker-2" onClick={this.close}>No</div>
-            </div>
-            <div className="BG-TEXT">MEMO</div>
-            <div className="pattern pattern-pop"></div>
-        </div>
+        <div id="MODFI" className="Modal__container-diff">
+          <div id="Modal" className="Modal">
+              <div className="Modal__text-wrapper">
+              <h1 id="Message" className="Modal_h" >You chose: {this.state.formdata.difficulty}. ARE YOU SURE?</h1>
+              <div id="q" className="q">
+                <Link to="/game"  onClick={this.sendData}
+                      className="buttonGot-2"
+                      id="button" >
+                  <svg>
+                    <rect width='100' height='30'></rect>
+                  </svg>
+                  Yes
+                </Link>
 
+                  <div onClick={this.close}
+                        className="buttonGot-2"
+                        id="button" >
+                    <svg>
+                      <rect width='100' height='30'></rect>
+                    </svg>
+                    No
+                </div>
+
+              </div>
+              <div className="BG-TEXT">MEMO</div>
+              <div className="pattern pattern-pop"></div>
+              </div>
+          </div>
+      </div>
         <Dots/>
       </div>
     )

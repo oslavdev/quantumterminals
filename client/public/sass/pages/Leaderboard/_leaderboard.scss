@@ -10,7 +10,8 @@
 
 
   h1 {
-    font-family: 'helveticaneueregular';
+    font-family: 'Montserrat', sans-serif!important;
+    color: $color-intro-black!important;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -18,7 +19,8 @@
   }
 
   p {
-    font-family: 'helveticaneuethin';
+    font-family: 'Montserrat', sans-serif;
+    color: $color-intro-black;
     text-align:center;
     font-size: 1rem;
     text-transform: uppercase;
@@ -31,7 +33,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   width: 1000px;
 }
 
@@ -45,8 +46,9 @@
   margin-bottom: 5px;
 
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(5,1fr);
   grid-template-rows: 1fr;
+
 
   &__item{
     display:flex;
@@ -57,21 +59,69 @@
       font-size: 1.1rem;
       text-align: center;
       letter-spacing: 5px;
-      font-family: 'helveticaneuethin';
+      font-family: 'Montserrat', sans-serif;
+      color: $color-intro-black;
       text-transform: uppercase;
+
     }
   }
 }
 
 .board-grid--2 {
+  transform: skew(10deg)!important;
+  height: 30px!important;
+  grid-gap: 10px!important;
 
   &__item{
+    position: relative;
+    background-color: $color-intro-black;
+    background-image: url("../images/dots.png");
+    background-repeat: repeat;
+    background-size: 1%;
+    padding:5px;
+    margin-bottom: 15px;
 
-    background: $color-darker-black;
+    &:before{
+      content: '';
+      background: #95c6dd !important;
+      width: 80%;
+
+      height: 100%;
+
+      position: absolute;
+
+      z-index: -1;
+
+      top: -4px;
+
+      left: -8px;
+
+      opacity: .5;
+    }
 
     P {
-      color: $color-primary-white;
-      font-family: 'helveticaneuebold';
+      color: $color-primary-white!important;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      transform: skew(-10deg)!important;
     }
+
+
+
+    &-title{
+
+      p{
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-shadow:
+          1px 0px 0px rgba(35, 231, 214, 1),
+          -1px 0px 0px rgba(210, 17, 50, 1);
+      }
+    }
+
+
   }
+
+
 }

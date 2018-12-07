@@ -749,6 +749,11 @@ class Memos extends PureComponent {
 
 
           </div>
+          <div  onClick={()=>this.props.history.push("/info")} className="list__item">
+            <p className="link">BACK</p>
+            <div className="btn btn1"></div>
+            <div className="btn btn2"></div>
+          </div>
         </div>
       </div>
     )

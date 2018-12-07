@@ -16,27 +16,13 @@ const Menu = () =>{
 
       <div class="global-container">
 
-        <div class="ModalLogo-container">
-          <div class="logo-flex">
-            <h1>MEMO TERMINALS V1.0</h1>
-            <p>unlock your quantum memory</p>
-            <h2>Q</h2>
-          </div>
-        </div>
+        
 
         <div class="bg-text-container">
           <h1>MEMO</h1>
         </div>
 
-        <div class="adress-container">
-          <p>
-            CS, Neuronopolis
-            Ark str. 321, ap. 33<br>
-            created by Rijel Ek
-            <a class="social-sup" href="#"> Twitter </a>
-            <a class="social-sup" href="#"> Ko-fi</a>
-          </p>
-        </div>
+
 
         <div class="menuelements-container">
           <ul>

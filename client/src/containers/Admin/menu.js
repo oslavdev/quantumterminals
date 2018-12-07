@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getUser, updateUser } from '../../actions';
 import $ from 'jquery';
+import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 
 import Decor from '../../components/Decor/decor';
 import Header from '../../components/Header/header';
@@ -17,12 +18,14 @@ class Menu extends PureComponent {
       _id:this.props.user.login.id,
       score:"0",
       level:"1",
-      wrong:"0",
+      mistakes:"0",
       time:"0",
       difficulty:"Easy",
       best:"0",
       firstStart: true,
-      firstEnter:true
+      firstEnter: true,
+      firstEver: true,
+      messages: [],
     },
     received: false,
     show: true
@@ -44,32 +47,38 @@ class Menu extends PureComponent {
 
 
   ask = () =>{
-    console.log("are you sure?")
-    document.querySelector(".Modal").classList.remove('Modal-INV');
-    document.querySelector(".Modal").classList.remove('Modal-ANIM');
-    document.querySelector(".asker-1").classList.remove('asker-ANIM');
-    document.querySelector(".asker-2").classList.remove('asker-ANIM');
-    document.querySelector(".Modal_h").classList.remove('ModalHead-ANIM');
+    var transitionTimeline = new TimelineLite();
+
+    transitionTimeline.add(TweenMax.fromTo('#Modal', .1, {display:"none"}, {display:"block"}),.1);
+    transitionTimeline.add(TweenMax.fromTo('#Modal', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),.3);
+
+    transitionTimeline.add(TweenMax.fromTo('#ModalHeader', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),.8);
+    transitionTimeline.add(TweenMax.fromTo('#q', .5, {opacity:"0",  y:"20"}, {opacity:"1",  y:"0"}),1);
+
+
   }
 
   clearData = (e) => {
     e.preventDefault();
     this.props.dispatch(updateUser(this.state.formdata))
-    this.props.history.push('/difficulty')
+    setTimeout(()=>{
+          this.props.history.push('/difficulty')
+    },1000)
     console.log("Data was cleared. You do have guts afterall!")
   }
 
   close = () => {
 
-    document.querySelector(".Modal").classList.add('Modal-ANIM');
-    document.querySelector(".Modal_h").classList.add('ModalHead-ANIM');
-    document.querySelector(".asker-1").classList.add('asker-ANIM');
-    document.querySelector(".asker-2").classList.add('asker-ANIM');
+    var transitionTimeline = new TimelineLite();
+
+      transitionTimeline.add(TweenMax.fromTo('#q', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),.3);
+      transitionTimeline.add(TweenMax.fromTo('#ModalHeader', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),.7);
+
+      transitionTimeline.add(TweenMax.fromTo('#Modal', .5, {opacity:"1",  y:"0"}, {opacity:"0",  y:"20"}),1);
+      transitionTimeline.add(TweenMax.fromTo('#Modal', .1, {display:"block"}, {display:"none"}),1.5);
 
 
-    setTimeout(()=>{
-      document.querySelector(".Modal").classList.add('Modal-INV');
-    }, 1000)
+
   }
 
 
@@ -119,16 +128,41 @@ class Menu extends PureComponent {
           <Decor/>
           {this.checkProps(user)}
           {this.checklevel}
-          <div className="Modal Modal-INV">
-              <div className="Modal-revealer"></div>
-              <h1 className="Modal_h">Are you sure you want to start a new game? You will loose all your progress? </h1>
-              <div className="q">
+          <div id="Modal" className="Modal">
+          <div className="Modal__text-wrapper">
+              {user?
+                  user.frstStartEver ? <h1 id="ModalHeader" className="Modal_h">Are you sure you want to start a new game? You will loose all your progress? </h1>
+                : <h1 id="ModalHeader" className="Modal_h">The game will be started</h1>
+              :null
+              }
 
-                <Link className="asker asker-1" to="/difficulty" onClick={this.clearData}>Yes</Link>
-                <div className="asker asker-2" onClick={this.close}>No</div>
+              <div id="q" className="q">
+
+
+                <Link  to="/difficulty" onClick={this.clearData}
+                      className="buttonGot-2"
+                      id="button" >
+                  <svg>
+                    <rect width='100' height='30'></rect>
+                  </svg>
+                  Yes
+                </Link>
+
+                  <div onClick={this.close}
+                        className="buttonGot-2"
+                        id="button" >
+                    <svg>
+                      <rect width='100' height='30'></rect>
+                    </svg>
+                    No
+                  </div>
+
+
+
               </div>
               <div className="BG-TEXT">MEMO</div>
               <div className="pattern pattern-pop"></div>
+              </div>
           </div>
 
           {this.continue(user)}
@@ -162,9 +196,9 @@ class Menu extends PureComponent {
                         this.state.show ?
                           <div className="support__container">
                             <div className="support__container-content">
-                              <p>It's just the beginning. This is a beta version of Memo The Quantum Terminals. There will be much more. </p>
+                              <p>It's just the beginning. This is a beta version of te game. There will be much more. </p>
                               <div className="buttonGot__wrapper">
-                                <Link className="buttonGot" id="button" to="/about" >
+                                <Link className="buttonGot " id="button" to="/about" >
                                   <svg>
                                     <rect width='100' height='30'></rect>
                                   </svg>

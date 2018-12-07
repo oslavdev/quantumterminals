@@ -17,6 +17,11 @@ const Credits = () =>{
           <p>Roka Lazado</p>
           <h1>Music by</h1>
           <p>Triangular</p>
+          <div  onClick={()=>this.props.history.push("/info")} className="list__item">
+            <p className="link">BACK</p>
+            <div className="btn btn1"></div>
+            <div className="btn btn2"></div>
+          </div>
         </div>
       </div>
     </div>

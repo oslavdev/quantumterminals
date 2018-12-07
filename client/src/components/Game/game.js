@@ -47,6 +47,7 @@ class Game extends PureComponent {
           this.renderMessage = this.renderMessage.bind(this);
 
           this.slider = this.slider.bind(this);
+          this.tutorialSlider = this.tutorialSlider.bind(this);
 
 
           this.state = {
@@ -69,11 +70,12 @@ class Game extends PureComponent {
             showResults: false,
             pattern:'',
             path:'',
+            tutorial: '',
+            startTutorial: '1',
 
             streak: "",
             time: "",
             currentStreak:"0",
-            mistakes: "0",
             minutes:"0",
             seconds:"0",
 
@@ -98,9 +100,11 @@ class Game extends PureComponent {
             tiles: '',
             firstEnter: false,
             openMessage: false,
-            firstStart: true,
+            firstEnter: true,
             receivedMessage: false,
             timer: false,
+            firstEver: true,
+            messa: true,
 
             standby: true,
             numberofmessage:'',
@@ -110,6 +114,7 @@ class Game extends PureComponent {
             slideIndex: "1",
             firstMessageCheck: true,
             messageCondition: false,
+            firstEnter: false,
 
             start: '1',
             length: '3',
@@ -117,6 +122,7 @@ class Game extends PureComponent {
 
             openBigMessages: false,
             indexOfTheMessage: '',
+            modal:false,
 
             final: false,
 
@@ -145,7 +151,6 @@ class Game extends PureComponent {
 
           let allMessages = this.props.user.user.messages;
           let length = allMessages.length;
-          console.log(allMessages)
 
           if(length>0){
             this.setState({allmessages:allMessages})
@@ -278,7 +283,6 @@ class Game extends PureComponent {
           let x = this.state.allmessages;
           let y = this.state.messages;
           let final = x.concat(y);
-          console.log(final)
           this.setState({
             messagesData:{
               _id:this.props.user.login.id,
@@ -490,7 +494,8 @@ class Game extends PureComponent {
                   mistakes:this.state.mistakes,
                   score:score,
                   level:curLevel,
-                  firstStart: false,
+                  firstEnter: false,
+                  firstEver: false,
                 },
                 pattern:"",
                 path:'',
@@ -512,7 +517,8 @@ class Game extends PureComponent {
                   mistakes:this.state.mistakes,
                   score:score,
                   level:"1",
-                  firstStart: true,
+                  firstEnter: true,
+                  firstEver: true,
                 },
                 pattern:"",
                 path:'',
@@ -1284,7 +1290,6 @@ class Game extends PureComponent {
         }
 
         run = () =>{
-
           let i = this.state.countdown;
           let state = this.state;
           this.setState({
@@ -1315,10 +1320,12 @@ class Game extends PureComponent {
 
 
       checkProps = (user) => (
-        this.props.user.user ?
-          this.props.user.user.messages ?
+          user.user ?
+            user.user.messages ?
             setTimeout(()=>{
-              if (this.props.user.user.final === false){
+              console.log("Executed")
+              console.log(user.user.final)
+              if (user.user.final === false){
                 this.setState({
                   showResults: true,
                   difficulty: user.user.difficulty,
@@ -1326,7 +1333,7 @@ class Game extends PureComponent {
                   name: user.user.name,
                   overall: user.user.score,
                   game:true,
-                  first: user.user.firstStart,
+                  firstEnter: user.user.firstEnter,
                   mistakes: user.user.mistakes,
                   totalscore: user.user.score
                  })
@@ -1344,13 +1351,10 @@ class Game extends PureComponent {
                  },1000)
                  this.setState({firstMessageCheck:false})
                }
-
                this.setState({firstMessageCheck:false})
                const rules = Rules.Levels;
                let level = this.state.level;
                let difficulty = this.state.difficulty;
-
-
                for (var i=0; i<rules.length; i++){
                  let rule = rules[i];
                  if(rules[i].Level == level && rules[i].Difficulty == difficulty) {
@@ -1365,9 +1369,8 @@ class Game extends PureComponent {
              } else if (this.props.user.user.final === true){
                 this.props.history.push('/menu');
               }
-
           }, 1000)
-          : null
+        :null
         :null
       )
 
@@ -1405,7 +1408,7 @@ class Game extends PureComponent {
                className="messages__close">
                <i class="fas fa-times"></i>
              </div>
-             <div id="welcome" className="text-wrapper text-wrapper-active">
+             <div id="welcome" className="text-wrapper text-wrapper-active ">
                <h1>You received: {length} {length>1 ? 'messages' :'message'}</h1>
                <p>Do you want to read?</p>
                <div className="m-btn-wrapper">
@@ -1441,11 +1444,29 @@ class Game extends PureComponent {
       }
 
 
+      tutorialSlider(n){
+          let start = this.state.startTutorial;
+          let length = 3;
+          let nextSlideShow, prevSlideShow;
+
+          let nextSlide = parseInt(parseInt(start)+parseInt(n));
+
+          if (nextSlide <= length && nextSlide > 0){
+              nextSlideShow = document.getElementById(nextSlide+ "slide");
+              nextSlideShow.classList.add("Tutorial__slide-active")
+              prevSlideShow = document.getElementById(start + "slide");
+              prevSlideShow.classList.remove("Tutorial__slide-active")
+              this.setState({startTutorial:nextSlide})
+          }
+          console.log(nextSlideShow)
+          console.log(prevSlideShow)
+          console.log(nextSlide)
+      }
 
 
       slider(n){
 
-        var slider = new TimelineLite();
+
         let start = this.state.start;
         let message = this.state.messages;
         let length = message.length;
@@ -1478,7 +1499,7 @@ class Game extends PureComponent {
               className="messages__close">
               <i class="fas fa-times"></i>
             </div>
-            <div id={index} className="text-wrapper text-wrapper-active">
+            <div id={index} className="text-wrapper text-wrapper-active text-wrapper-envelope">
               <h2><i className="far fa-envelope"></i><span>from:</span></h2>
               <h1>{theMessage.name}</h1>
               <p>{theMessage.message}</p>
@@ -1502,6 +1523,9 @@ class Game extends PureComponent {
     let id = this.state.id;
     let state = this.state;
 
+    console.log(user)
+    console.log(state)
+
     return(
 
       <div className="game__container">
@@ -1519,7 +1543,7 @@ class Game extends PureComponent {
         <Burger state={this.state} openMessage={this.openMessage} user={user}/>
 
         {this.state.gameplay ?
-          <div  className="Modal">
+          <div  className="Modal Modal-ShowUp">
             <div className="Modal-revealer"></div>
             <div className="pattern pattern-pop"></div>
               <div className="modal-wrapper">
@@ -1546,40 +1570,134 @@ class Game extends PureComponent {
         }
 
 
+        {this.state.modal ?
+          this.state.showMessage ?
+          <div className="Modal Modal-ShowUp">
+          <div className="BG-TEXT">MEMO</div>
+          <div className="pattern pattern-pop"></div>
+          <div className="modal-wrapper">
+              <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
+              <div className="modal-wrapper-text">
+                <p>Your level: {this.state.level}</p>
+                <p>Difficulty: {this.state.difficulty}</p>
+                <p>You have: {this.state.time} seconds</p>
+                <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
+              </div>
+              <div className="buttonGot__wrapper-2">
+                <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                  <svg>
+                    <rect width='100' height='30'></rect>
+                  </svg>
+                  Start
+                </div>
+                <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                  <svg>
+                    <rect width='100' height='30'></rect>
+                  </svg>
+                  Exit
+                </div>
+              </div>
+          </div>
+        </div>
+      :null:null}
+
+      {this.state.tutorial ?
+        <div className="box">
+          <div className="text">
+              <div className="text-wrapper text-wrapper-active">
+                <div className="super-wrapper">
+                  <div className="Tutorial__wrapper">
+
+                  <img className="tutorialIMG" src="images/tutorial.gif" alt="tutorial"></img>
+                  <div id="1slide" className="Tutorial__slide Tutorial__slide-ative">
+                    <p>Your job is simple. We render the pattern which unlocks the memory blocks. Memorize exact sequence of each appeared point. When the display disappears, you need to repeat.</p>
+                  </div>
+                  <div id="2slide" className="Tutorial__slide ">
+                    <p>To do that you need to grab the first point and without releasing drag to the next block. When you finish the pattren, release point to start verification.</p>
+                  </div>
+                  <div id="3slide" className="Tutorial__slide ">
+                    <p>Each level consist of several streaks. You need to unlock a few chains without interaption to proceed to the next level.</p>
+                  </div>
+                  <div className="slider-control">
+                    <button className="btnslider" onClick={()=>this.tutorialSlider(-1)}><i class="fas fa-chevron-left"></i> Previous</button>
+                    <button className="btnslider" onClick={()=>this.tutorialSlider(1)}>Next <i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <div className="buttonGot__wrapper-2">
+                    <div  onClick={()=>this.setState({tutorial:false})} className="buttonGot-2" id="button" >
+                      <svg>
+                        <rect width='100' height='30'></rect>
+                      </svg>
+                      GOT IT!
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+            </div>
+          :null}
 
         {this.state.showMessage ?
               this.state.game ?
-                this.props.user.user.firstStart ?
-                  this.state.firstStart ?
-                    <div className="box">
-                      <div className="text">
-                          <div className="text-wrapper text-wrapper-active">
-                            <h2><i className="far fa-envelope"></i><span>from:</span></h2>
-                            <h1>Lumituisku</h1>
-                            <p>Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
-                            <div className="m-btn-wrapper">
-                              <div className="buttonGot-2" id="button"  >
-                                <svg>
-                                  <rect width='100' height='30'></rect>
-                                </svg>
-                                Yes
-                              </div>
-                              <div className="buttonGot-2" id="button" onClick={()=>{this.setState({firstStart:false})}} >
-                                <svg>
-                                  <rect width='100' height='30'></rect>
-                                </svg>
-                                No
-                              </div>
+                this.state.firstEnter ?
+                  this.state.messa ?
+                  <div className="box">
+                    <div className="text">
+                        <div className="text-wrapper text-wrapper-active">
+                          <div className="super-wrapper">
+                          <h2><i className="far fa-envelope"></i><span>from:</span></h2>
+                          <h1>Lumituisku</h1>
+                          <p>Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
+                          <div className="m-btn-wrapper">
+                            <div onClick={()=>this.setState({messa:false, tutorial:true}) } className="buttonGot-2" id="button"  >
+                              <svg>
+                                <rect width='100' height='30'></rect>
+                              </svg>
+                              Yes
+                            </div>
+                            <div className="buttonGot-2" id="button" onClick={()=>{this.setState({messa:false})}} >
+                              <svg>
+                                <rect width='100' height='30'></rect>
+                              </svg>
+                              No
                             </div>
                           </div>
                         </div>
+                        </div>
                       </div>
-                  :<div className="Modal">
-                      <div className="Modal-revealer"></div>
+                    </div>
+                    :<div className="Modal Modal-ShowUp">
+                    <div className="BG-TEXT">MEMO</div>
+                    <div className="pattern pattern-pop"></div>
+                    <div className="modal-wrapper">
+                        <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
+                        <div className="modal-wrapper-text">
+                          <p>Your level: {this.state.level}</p>
+                          <p>Difficulty: {this.state.difficulty}</p>
+                          <p>You have: {this.state.time} seconds</p>
+                          <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
+                        </div>
+                        <div className="buttonGot__wrapper-2">
+                          <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            Start
+                          </div>
+                          <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            Exit
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                      :<div className="Modal Modal-ShowUp">
                       <div className="BG-TEXT">MEMO</div>
                       <div className="pattern pattern-pop"></div>
                       <div className="modal-wrapper">
-                          <h1 className="Modal_h">Quantum Terminal is ready to be started</h1>
+                          <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
                           <div className="modal-wrapper-text">
                             <p>Your level: {this.state.level}</p>
                             <p>Difficulty: {this.state.difficulty}</p>
@@ -1602,45 +1720,16 @@ class Game extends PureComponent {
                           </div>
                       </div>
                     </div>
-                    :<div className="Modal">
-                        <div className="Modal-revealer"></div>
-                        <div className="BG-TEXT">MEMO</div>
-                        <div className="pattern pattern-pop"></div>
-                        <div className="modal-wrapper">
-                            <h1 className="Modal_h">Quantum Terminal is ready to be started</h1>
-                            <div className="modal-wrapper-text">
-                              <p>Your level: {this.state.level}</p>
-                              <p>Difficulty: {this.state.difficulty}</p>
-
-                              <p>You have:  {this.state.time} seconds</p>
-                              <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
-                            </div>
-                            <div className="buttonGot__wrapper-2">
-                              <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
-                                <svg>
-                                  <rect width='100' height='30'></rect>
-                                </svg>
-                                Start
-                              </div>
-                              <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
-                                <svg>
-                                  <rect width='100' height='30'></rect>
-                                </svg>
-                                Exit
-                              </div>
-                            </div>
-                        </div>
-                      </div>
               :null
           :null}
 
           {this.state.fail ?
-            <div className="Modal">
+            <div className="Modal Modal-ShowUp">
               <div className="Modal-revealer"></div>
               <div className="BG-TEXT">MEMO</div>
               <div className="pattern pattern-pop"></div>
                 <div className="modal-wrapper">
-                  <h1 className="Modal_h">You failed!</h1>
+                  <h1 className="Modal_h Modal_h-ShowUp">You failed!</h1>
                   <p>Do you want to restart the terminal?</p>
                   <div className="buttonGot__wrapper-2">
                     <div  onClick={()=>this.restart()} className="buttonGot-2" id="button" >
@@ -1661,12 +1750,12 @@ class Game extends PureComponent {
             :null}
 
             {this.state.win ?
-              <div className="Modal">
+              <div className="Modal Modal-ShowUp">
                 <div className="Modal-revealer"></div>
                 <div className="BG-TEXT">MEMO</div>
                 <div className="pattern pattern-pop"></div>
                   <div className="modal-wrapper">
-                    <h1 className="Modal_h">You won!</h1>
+                    <h1 className="Modal_h Modal_h-ShowUp">You won!</h1>
                     <div className="buttonGot__wrapper-2">
                       <div onClick={()=>this.receiveMessages()} className="buttonGot-2" id="button" >
                         <svg>
@@ -1690,13 +1779,6 @@ class Game extends PureComponent {
               <div className="noDisp">{this.checkProps(user)}</div>
 
 
-                <div className="blocker">
-                  <div className="blocker-wrapper">
-                    <div id="standcircle" className="blocker-wrapper-circle"></div>
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <p id="standby">STAND BY</p>
-                  </div>
-                </div>
 
                 <div className="win">
                   <p>Correct!</p>
@@ -1705,6 +1787,14 @@ class Game extends PureComponent {
 
 
               <Gameboard/>
+
+                              <div className="blocker">
+                                <div className="blocker-wrapper">
+                                  <div id="standcircle" className="blocker-wrapper-circle"></div>
+                                  <i class="fas fa-exclamation-triangle"></i>
+                                  <p id="standby">STAND BY</p>
+                                </div>
+                              </div>
         </div>
 
 
@@ -1719,27 +1809,27 @@ class Game extends PureComponent {
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Level: {this.state.level}</p>
+              <p>Level: {this.state.level ? <span>{this.state.level}</span> :null}</p>
             </div>
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Score: {this.state.score}</p>
+              <p>Score: {this.state.score ? <span>{this.state.score}</span> :null}</p>
             </div>
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Total score: {this.state.totalscore}</p>
+              <p>Total score: {this.state.totalscore ? <span>{this.state.totalscore}</span> :null}</p>
             </div>
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Mistakes: {this.state.mistakes} </p>
+              <p>Mistakes:  <span>{this.state.misakes}</span>  </p>
             </div>
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Streak: {this.state.currentStreak}/{this.state.streak} </p>
+              <p>Streak: {this.state.streak ? <span>{this.state.currentStreak}/{this.state.streak}</span> :null} </p>
             </div>
           </div>
         </div>
@@ -1752,11 +1842,13 @@ class Game extends PureComponent {
           <div className="footer__wrapper">
 
             <div className="footer__left">
-              <a href="#" target="_blank"><i className="fab fa-twitter"></i></a>
-              <a href="#" target="_blank"><i className="fab fa-instagram"></i></a>
-              <a href="#" target="_blank"><i className="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i className="fab fa-twitch"></i></a>
-              <a href="#" target="_blank"><i className="fab fa-discord"></i></a>
+              <a href="https://twitter.com/memo_quantum" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/memothegame/" rel="noopener noreferrer" target="_blank"><i className="fab fa-instagram"></i></a>
+              <a href="https://ko-fi.com/ekrijel" rel="noopener noreferrer" target="_blank"><i class="fas fa-coffee"></i></a>
+              <a href="https://www.patreon.com/stampedeproduction" rel="noopener noreferrer" target="_blank"><i class="fab fa-patreon"></i></a>
+              <a href="https://www.twitch.tv/alittepanic" rel="noopener noreferrer" target="_blank"><i className="fab fa-twitch"></i></a>
+              <a href="https://discord.gg/y5ajg7" rel="noopener noreferrer" target="_blank"><i className="fab fa-discord"></i></a>
+              <a href="https://www.youtube.com/channel/UCZaOcxON92n-NLBqjeI6C5Q" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
 
             <div className="fullscreen-container">

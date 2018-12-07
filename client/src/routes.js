@@ -18,6 +18,7 @@ import Memos from './containers/Pages/Memos/memos';
 import Error from './containers/Pages/Error/error';
 import Info from './containers/Pages/Info/info';
 import About from './containers/Pages/About/about';
+import Story from './containers/Pages/Story/Story';
 
 
 
@@ -25,7 +26,6 @@ import About from './containers/Pages/About/about';
 
 //Game
 import Game from './components/Game/game';
-import Level from './components/Game/Level';
 
 
 
@@ -46,9 +46,9 @@ class Routes extends Component {
                     <Route path="/credits" exact component={Auth(Credits,true)}/>
                     <Route path="/about" exact component={Auth(About,true)}/>
                     <Route path="/memos" exact component={Auth(Memos,true)}/>
-                    <Route path="/level" exact component={Auth(Level,true)}/>
                     <Route path="/info" exact component={Auth(Info,true)}/>
                     <Route path="/error" exact component={Error}/>
+                    <Route path="/beggining" exact component={Auth(Story,true)}/>
                 </Switch>
 
         )
