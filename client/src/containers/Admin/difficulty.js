@@ -220,16 +220,8 @@ class Difficulty extends PureComponent {
       :<div className="dif-cont">
               <div className="dif-wrap dif-wrap--1">
                   <div className="dif-btn-wrap">
-                  <ul className="list">
-          <li id="btn1">
-            <div className="list__item">
-              <Link to="/menu"
+              <Link id="startnewgame" to="/menu"
                className="link">Please start a new game</Link>
-                <div className="btn btn1"></div>
-                <div className="btn btn2"></div>
-            </div>
-          </li>
-          </ul>
           </div>
           </div>
           </div>:null

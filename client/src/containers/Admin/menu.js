@@ -43,6 +43,9 @@ class Menu extends PureComponent {
       $(".btn2", this).toggleClass("btn2-active");
       $(".btn1", this).toggleClass("btn1-active");
     })
+
+
+
   }
 
 
@@ -97,17 +100,17 @@ class Menu extends PureComponent {
     user ?
       user.firstStart ?
         user.final ?
-        <div onClick={()=>this.props.history.push("/difficulty")} className="list__item list__item-continue">
-          <p className="link">NEW GAME +</p>
+        <div id="Continue"onClick={()=>this.props.history.push("/difficulty")} className="list__item list__item-continue">
+          <p  className="link">NEW GAME +</p>
             <div className="btn btn1"></div>
             <div className="btn btn2"></div>
          </div>
-        :<div className="list__item list__item-inactive list__item-continue">
-            <p className="link">CONTINUE</p>
+        :<div id="Continue"className="list__item list__item-inactive list__item-continue">
+            <p  className="link">CONTINUE</p>
             <div className="btn btn1"></div>
             <div className="btn btn2"></div>
           </div>
-      :<div  onClick={()=>this.props.history.push("/game")} className="list__item list__item-continue">
+      :<div id="Continue" onClick={()=>this.props.history.push("/game")} className="list__item list__item-continue">
         <p className="link">CONTINUE</p>
         <div className="btn btn1"></div>
         <div className="btn btn2"></div>
@@ -170,7 +173,7 @@ class Menu extends PureComponent {
 
             <ul className="list">
               <li id="btn2">
-                <div className="list__item">
+                <div id="Newgame" className="list__item">
                   <p className="link" onClick={this.ask}>NEW GAME</p>
                   <div className="btn btn1"></div>
                   <div className="btn btn2"></div>

@@ -6,6 +6,8 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Sound from 'react-sound';
+
 
 import Header from './header/header';
 import Dots from '../Dots/dots';
@@ -14,6 +16,7 @@ import Rules from './rules.json'
 import Burger from '../Burger/burger';
 import Buttons from './buttons/buttons';
 import Gameboard from './board/gameboard';
+import Music from './music/Music';
 
 import Messages from '../Messages/DB/Messages';
 import Adv from '../Messages/DB/adv';
@@ -49,16 +52,19 @@ class Game extends PureComponent {
           this.slider = this.slider.bind(this);
           this.tutorialSlider = this.tutorialSlider.bind(this);
 
+          this.TerminalCountDown = this.TerminalCountDown.bind(this);
+          this.firstMessage = this.firstMessage.bind(this);
+          this.messageShow = this.messageShow.bind(this);
+          this.soundManager =this.soundManager.bind(this);
+
 
           this.state = {
-
             userdata:{
               _id:this.props.user.login.id,
               mistakes:'0',
               score:'',
               level:'',
             },
-
             name: "",
             level: "",
             score: '',
@@ -72,13 +78,11 @@ class Game extends PureComponent {
             path:'',
             tutorial: '',
             startTutorial: '1',
-
             streak: "",
             time: "",
             currentStreak:"0",
             minutes:"0",
             seconds:"0",
-
             start:false,
             showMessage: true, // Intro Message
             game: false,
@@ -89,7 +93,6 @@ class Game extends PureComponent {
             fail: false,
             midWin:false,
             generator: false, //Generate path
-
             seconds:'',
             minutes:'',
             countdown:'3',
@@ -105,7 +108,6 @@ class Game extends PureComponent {
             timer: false,
             firstEver: true,
             messa: true,
-
             standby: true,
             numberofmessage:'',
             messages: [],
@@ -115,26 +117,88 @@ class Game extends PureComponent {
             firstMessageCheck: true,
             messageCondition: false,
             firstEnter: false,
-
             start: '1',
             length: '3',
             break: false,
-
             openBigMessages: false,
             indexOfTheMessage: '',
             modal:false,
-
             final: false,
-
+            props:true,
+            song:"none",
+            condition:Sound.status.PLAYING,
+            soundScript: 'none',
+            trackName:'',
+            executed: false,
+            music:false,
             messagesData:{
               _id:this.props.user.login.id,
               messages:[],
             },
-
           }
+        }
+
+        messageShow(){
+
+        }
+
+
+
+        firstMessage(){
+
+
+            var message = document.createElement('audio');
+            message.setAttribute('src', './soundFX/notification.mp3');
+
+            var messageTimeline = new TimelineLite({onComplete:message.pause()});
+
+            messageTimeline.add(TweenMax.fromTo('#firstMessage', .1, {display:"none"}, {display:"flex"}),1);
+            messageTimeline.add(TweenMax.fromTo('#firstMessage', .5, {opacity:"0"}, {opacity:"1", onStart:function(){message.play()}}),1.2);
+            messageTimeline.add(TweenMax.fromTo('#from', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),1.8);
+            messageTimeline.add(TweenMax.fromTo('#sender', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.1);
+            messageTimeline.add(TweenMax.fromTo('#message', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.3);
+            messageTimeline.add(TweenMax.fromTo('#message-btns', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.5);
+
+
+            return(
+              <div id="firstMessage" className="box">
+                <div className="text">
+                    <div className="text-wrapper text-wrapper-active">
+                      <div className="super-wrapper">
+                      <h2 id="from"><i className="far fa-envelope"></i><span>from:</span></h2>
+                      <h1 id="sender">Lumituisku</h1>
+                      <p id="message" >Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
+                      <div id="message-btns" className="m-btn-wrapper">
+                        <div onClick={()=>this.setState({messa:false, tutorial:true}) } className="buttonGot-2" id="button"  >
+                          <svg>
+                            <rect width='100' height='30'></rect>
+                          </svg>
+                          Yes
+                        </div>
+                        <div className="buttonGot-2" id="button" onClick={()=>{this.setState({messa:false})}} >
+                          <svg>
+                            <rect width='100' height='30'></rect>
+                          </svg>
+                          No
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            )
+
 
 
         }
+
+
+
+        TerminalCountDown(){
+
+        }
+
+
 
         renderMessage(user){
 
@@ -389,7 +453,8 @@ class Game extends PureComponent {
             clicked: false,
             level: this.props.user.level,
             standby: true,
-            score:"0"
+            score:"0",
+            gameplay: true
           });
 
           for (let i=1; i<31; i++){
@@ -442,6 +507,35 @@ class Game extends PureComponent {
           document.querySelector(".blocker").classList.add('blocker-active');
           let level = this.state.level;
 
+          for (let i=1; i<31; i++){
+            let playground = document.querySelector(`.playground__item--${i}`);
+            let button = document.querySelector(`#button${i}`);
+            $(button).removeClass();
+            $(button).addClass("button");
+
+          }
+          $(`.line`).remove();
+          const rules = Rules.Levels;
+          level = this.state.level;
+          let difficulty = this.state.difficulty;
+
+
+            for (var i=0; i<rules.length; i++){
+              let rule = rules[i];
+              if(rules[i].Level == level && rules[i].Difficulty == difficulty) {
+                let total = rule.Time;
+                let minutes = parseInt(total/60);
+                let seconds = total-(minutes*60);
+                this.setState({
+                  streak:rule.Streak,
+                  time: total,
+                  minutes:minutes,
+                  seconds:seconds,
+                })
+              }
+            }
+
+
           this.setState({
             userdata:{
               _id:this.props.user.login.id,
@@ -449,6 +543,8 @@ class Game extends PureComponent {
               level:this.state.level,
               mistakes: this.state.mistakes
             },
+              countdown: "3",
+              countnum:'',
               pattern:"",
               path:'',
               fail:true,
@@ -458,6 +554,8 @@ class Game extends PureComponent {
               clicked: false,
               win: false,
               break: false,
+              gameplay: false,
+              soundScript: 'standby'
           })
           this.props.dispatch(updateUser(this.state.userdata));
 
@@ -505,7 +603,9 @@ class Game extends PureComponent {
                 streak:'',
                 clicked: false,
                 numberofmessage:curLevel,
-                score: '0'
+                score: '0',
+                gameplay: false,
+                soundScript: 'standby'
             })
             this.props.dispatch(updateUser(this.state.userdata));
           } else if (curLevel > 12){
@@ -570,6 +670,26 @@ class Game extends PureComponent {
 
         this.props.dispatch(getUser(this.props.user.login.id))
 
+        setTimeout(()=>{
+          let intro = "intro";
+          this.setState({soundScript:"intro"})
+          this.soundManager(intro);
+        }, 3000)
+
+
+        var hover = $("#hoverFX")[0];
+        var click = $("#clickFX")[0];
+        var transitionIntro = $("#transitionIntro")[0];
+
+          $(".buttonGot-2").mouseenter(function() {
+            hover.play();
+          });
+
+
+          $('.buttonGot-2').click(function(){
+            click.play();
+          });
+
         $(".list__item").hover(function(){
           $(this).toggleClass("selected");
           $(this).toggleClass("list__item-active");
@@ -627,118 +747,6 @@ class Game extends PureComponent {
 
 
 
-
-          var imageTracker = 'playImage';
-              //set events handlers for on click
-              document.getElementById("swapImage").onclick = function() {
-              	swapImage();
-              	playPause();
-              };
-              document.getElementById("stopImage").onclick = function() {
-              	stop();
-              }
-              document.getElementById("nextImage").onclick = function() {
-              	forward();
-              }
-              document.getElementById("backImage").onclick = function() {
-              	backward();
-              }
-
-              //hadlers
-               var swapImage = function() {
-                var image = document.getElementById('swapImage');
-                if (imageTracker == 'playImage') {
-                  image.src = 'http://findicons.com/files/icons/129/soft_scraps/256/button_pause_01.png';
-                  imageTracker = 'stopImage';
-                } else {
-                  image.src = 'http://findicons.com/files/icons/129/soft_scraps/256/button_play_01.png';
-                  imageTracker = 'playImage';
-                }
-              };
-
-            //playing flag
-            var musicTracker = 'noMusic';
-            //playlist audios
-            var audios = [];
-             $(".song").each(function(){
-             		var load = new  Audio($(this).attr("url"));
-                load.load();
-                load.addEventListener('ended',function(){
-                   forward();
-                });
-                audios.push(load);
-             });
-            //active track
-            var activeTrack = 0;
-
-
-            var playPause = function() {
-              if (musicTracker == 'noMusic') {
-              	audios[activeTrack].play();
-                musicTracker = 'playMusic';
-              } else {
-                audios[activeTrack].pause();
-                musicTracker = 'noMusic';
-              }
-              showPlaying();
-            };
-
-            var stop = function() {
-              if (musicTracker == 'playMusic') {
-              	 audios[activeTrack].pause();
-            		 audios[activeTrack].currentTime = 0;
-              	 audios[activeTrack].play();
-              } else {
-                audios[activeTrack].currentTime = 0;
-              }
-              $(".song").removeClass("playing");
-              $(".equaliser-container").addClass("equaliser-container-inactive");
-            };
-
-            var forward = function(){
-              function increment(){
-              	 if (activeTrack < audios.length - 1)
-                 		activeTrack++;
-                 else activeTrack = 0;
-              }
-            	if (musicTracker == 'playMusic') {
-              	 audios[activeTrack].pause();
-                 increment();
-              	 audios[activeTrack].play();
-              } else {
-                increment();
-              }
-              showPlaying();
-            };
-
-            var backward = function(){
-              function decrement(){
-              	 if (activeTrack > 0)
-                 		activeTrack--;
-                 else activeTrack = audios.length -1;
-              }
-            	if (musicTracker == 'playMusic') {
-              	 audios[activeTrack].pause();
-                 decrement();
-              	 audios[activeTrack].play();
-              } else {
-                decrement();
-              }
-              showPlaying();
-            };
-
-            var showPlaying = function()
-            {
-            	var src = audios[activeTrack].src;
-              $(".song").removeClass("playing");
-              $(".equaliser-container").addClass("equaliser-container-active")
-              $("div[url='" + src + "']").addClass("playing");
-              $(".equaliser-container").removeClass("equaliser-container-inactive");
-            };
-
-            $( document ).ready(function() {
-              playPause();
-            });
 
           ///Create buttons
 
@@ -883,6 +891,8 @@ class Game extends PureComponent {
                                     $("#" + e.target.id).removeClass("activebutton").addClass("duplicatebutton");
                                     let mistake = this.state.mistakes;
                                     let sum = parseInt(parseInt(mistake) + parseInt(1));
+                                    console.log("mistakes: " + mistake)
+                                    console.log("sum: " + sum)
                                     clicked = false;
                                     this.setState({
                                       userdata:{
@@ -1282,25 +1292,28 @@ class Game extends PureComponent {
               document.querySelector(".timer").classList.add("warning");
             }
 
-            this.setState({
-              seconds:seconds,
-              minutes: minutes
-            })
+            this.setState({minutes:minutes, seconds: seconds})
+
           }, 1000)
         }
 
         run = () =>{
           let i = this.state.countdown;
+          let gameplay = "gameplay";
           let state = this.state;
           this.setState({
+            fail:false,
             showMessage:false,
+            soundScript: 'gameplay',
             gameplay:true,
             messages:[],
+            executed: false,
             messagesData:{
               _id:this.props.user.login.id,
               messages:[],
             },
           })
+          this.soundManager(gameplay);
 
           let interval = setInterval(() => {
               this.setState({
@@ -1318,6 +1331,18 @@ class Game extends PureComponent {
           }, 1000);
       }
 
+      messageProps = (user) =>(
+        user.user ?
+          user.user.messages ?
+            this.state.props ?
+              this.setState({
+                firstEnter: user.user.firstEnter,
+                props:false
+              })
+            :null
+          :null
+        :null
+      )
 
       checkProps = (user) => (
           user.user ?
@@ -1333,9 +1358,8 @@ class Game extends PureComponent {
                   name: user.user.name,
                   overall: user.user.score,
                   game:true,
-                  firstEnter: user.user.firstEnter,
                   mistakes: user.user.mistakes,
-                  totalscore: user.user.score
+                  totalscore: user.user.score,
                  })
 
                if (this.state.firstMessageCheck === true){
@@ -1409,9 +1433,9 @@ class Game extends PureComponent {
                <i class="fas fa-times"></i>
              </div>
              <div id="welcome" className="text-wrapper text-wrapper-active ">
-               <h1>You received: {length} {length>1 ? 'messages' :'message'}</h1>
-               <p>Do you want to read?</p>
-               <div className="m-btn-wrapper">
+               <h1 id="welcometitle">You received: {length} {length>1 ? 'messages' :'message'}</h1>
+               <p id="welcomepa">Do you want to read?</p>
+               <div id="btnwelcome" className="m-btn-wrapper">
                  <div  onClick={()=>this.showSlider()}
                        className="buttonGot-2"
                        id="button" >
@@ -1434,7 +1458,7 @@ class Game extends PureComponent {
              </div>
              <div id="slider" className="slider">
               {listItems}
-              <div className="slider-control">
+              <div id="sliderControl" className="slider-control">
                 <button className="btnslider" onClick={()=>this.slider(-1)}><i class="fas fa-chevron-left"></i> Previous</button>
                 <button className="btnslider" onClick={()=>this.slider(1)}>Next <i class="fas fa-chevron-right"></i></button>
               </div>
@@ -1448,8 +1472,9 @@ class Game extends PureComponent {
           let start = this.state.startTutorial;
           let length = 3;
           let nextSlideShow, prevSlideShow;
-
+          console.log("Start: " + start)
           let nextSlide = parseInt(parseInt(start)+parseInt(n));
+          console.log("Next: " + nextSlide)
 
           if (nextSlide <= length && nextSlide > 0){
               nextSlideShow = document.getElementById(nextSlide+ "slide");
@@ -1458,9 +1483,7 @@ class Game extends PureComponent {
               prevSlideShow.classList.remove("Tutorial__slide-active")
               this.setState({startTutorial:nextSlide})
           }
-          console.log(nextSlideShow)
-          console.log(prevSlideShow)
-          console.log(nextSlide)
+          console.log(this.state.startTutorial)
       }
 
 
@@ -1516,6 +1539,76 @@ class Game extends PureComponent {
         })
       }
 
+      soundManager(n){
+
+        if (this.state.executed === false){
+          this.setState({executed:true})
+          let sound = n;
+          let song1 = 'music/gameplay/FutureWorld_Dark_Loop_03.ogg'
+          let song2 = 'music/gameplay/FutureWorld_PressOn_Loop.ogg'
+          let song3 = 'music/gameplay/FutureWorld_PressOn_Loop_02.ogg'
+          let song4 = 'music/gameplay/Military_DogFight_Loop.ogg'
+          let tracks = ['Future World Dark', 'Press On', 'Press On 2', 'Dog Fight'];
+          let standby = 'music/standby.mp3';
+          let final = 'music/islands.mp3;'
+
+          const random = (min, max) => {
+              min = Math.ceil(1);
+              max = Math.floor(4);
+              return  Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+          let x = random();
+          let song, track;
+
+          switch(x) {
+            case 1:{
+              song = song1;
+              track = tracks[0];
+              break;
+            }
+            case 2:{
+              song = song2;
+              track = tracks[1];
+              break;
+            }
+            case 3:{
+              song = song3;
+              track = tracks[2];
+              break;
+            }
+            case 4:{
+              song = song4;
+              track = tracks[3];
+              break;
+            }
+          }
+
+          switch(sound) {
+             case "none": {
+                this.setState({song:'', music:false})
+                break;
+              }
+              case "intro": {
+                 this.setState({song:standby, music: false})
+                 break;
+               }
+               case "gameplay": {
+                  this.setState({song:song, trackName:track, music:true})
+                  break;
+                }
+              default: {
+                this.setState({song:'', music: false})
+                 break;
+              }
+            }
+        }
+
+      }
+
+
+
+
 
   render(){
 
@@ -1530,17 +1623,70 @@ class Game extends PureComponent {
 
       <div className="game__container">
 
+      <audio id="hoverFX">
+        <source src="soundFX/hover.mp3"></source>
+        <source src="soundFX/hover.ogg"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+
+      <audio id="clickFX">
+        <source src="soundFX/click.mp3"></source>
+        <source src="soundFX/click.ogg"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+
         <div className="noDisp">
+          <Sound
+             url={this.state.song}
+             playStatus={this.state.condition}
+             playFromPosition={0}
+             loop={true}
+             onLoading={this.handleSongLoading}
+             onPlaying={this.handleSongPlaying}
+             onFinishedPlaying={this.handleSongFinishedPlaying}
+           />
           {this.checkProps(user)}
+          {this.messageProps(user)}
         </div>
 
         {
           this.state.final ?
-          <div className="FINAL"><h1>FINAL</h1></div>
+          <div className="FINAL">
+            <h1 id="endtitle">FINAL</h1>
+            <div className="titlesContainer">
+              <h1>Created by</h1>
+              <p>Rijel Ek</p>
+              <h1>Special thanks to</h1>
+              <p>Roka Lazado for support</p>
+              <h1>Music</h1>
+              <p>DJ Counteract - Easter Island </p>
+              <p>Eris Wheel - Delta </p>
+              <p>Eris Wheel - Islands </p>
+              <p>Daniel Gooding - Dark Future Music Collection (Unity Store)</p>
+              <h1>Sound FX</h1>
+              <p>BIG5AUDIO_UI & UX</p>
+              <div className="NEWGAME">
+                <Link id="linknewgame" to="/difficulty">START NEW GAME+</Link>
+              </div>
+            </div>
+            <div className="Dots-2">
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+              <i class="dot-2"></i>
+            </div>
+          </div>
             :null
         }
 
+
         <Burger state={this.state} openMessage={this.openMessage} user={user}/>
+
 
         {this.state.gameplay ?
           <div  className="Modal Modal-ShowUp">
@@ -1552,6 +1698,8 @@ class Game extends PureComponent {
               </div>
           </div> : null
         }
+
+
 
         {
           this.state.receivedMessage ?
@@ -1572,19 +1720,21 @@ class Game extends PureComponent {
 
         {this.state.modal ?
           this.state.showMessage ?
-          <div className="Modal Modal-ShowUp">
+          <div id="startTerminalBox" className="Modal Modal-ANIM">
           <div className="BG-TEXT">MEMO</div>
           <div className="pattern pattern-pop"></div>
           <div className="modal-wrapper">
-              <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
-              <div className="modal-wrapper-text">
+              <h1 id="startTitle" className="Modal_h">Quantum Terminal is ready to be started</h1>
+              <div id="startParagraph" className="modal-wrapper-text">
                 <p>Your level: {this.state.level}</p>
                 <p>Difficulty: {this.state.difficulty}</p>
                 <p>You have: {this.state.time} seconds</p>
                 <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
               </div>
-              <div className="buttonGot__wrapper-2">
-                <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+              <div id="startButtons" className="buttonGot__wrapper-2">
+                <div  onClick={()=>
+                  this.run()
+                  } className="buttonGot-2" id="button" >
                   <svg>
                     <rect width='100' height='30'></rect>
                   </svg>
@@ -1605,11 +1755,11 @@ class Game extends PureComponent {
         <div className="box">
           <div className="text">
               <div className="text-wrapper text-wrapper-active">
-                <div className="super-wrapper">
+                <div className="tutorial-wrapper">
                   <div className="Tutorial__wrapper">
 
                   <img className="tutorialIMG" src="images/tutorial.gif" alt="tutorial"></img>
-                  <div id="1slide" className="Tutorial__slide Tutorial__slide-ative">
+                  <div id="1slide" className="Tutorial__slide Tutorial__slide-active">
                     <p>Your job is simple. We render the pattern which unlocks the memory blocks. Memorize exact sequence of each appeared point. When the display disappears, you need to repeat.</p>
                   </div>
                   <div id="2slide" className="Tutorial__slide ">
@@ -1622,15 +1772,13 @@ class Game extends PureComponent {
                     <button className="btnslider" onClick={()=>this.tutorialSlider(-1)}><i class="fas fa-chevron-left"></i> Previous</button>
                     <button className="btnslider" onClick={()=>this.tutorialSlider(1)}>Next <i class="fas fa-chevron-right"></i></button>
                   </div>
-                  <div className="buttonGot__wrapper-2">
-                    <div  onClick={()=>this.setState({tutorial:false})} className="buttonGot-2" id="button" >
-                      <svg>
-                        <rect width='100' height='30'></rect>
-                      </svg>
-                      GOT IT!
-                    </div>
-                    </div>
+                  <div  onClick={()=>this.setState({tutorial:false})} className="buttonGot-2" id="button" >
+                    <svg>
+                      <rect width='100' height='30'></rect>
+                    </svg>
+                    GOT IT!
                   </div>
+                </div>
                 </div>
                 </div>
                 </div>
@@ -1641,32 +1789,8 @@ class Game extends PureComponent {
               this.state.game ?
                 this.state.firstEnter ?
                   this.state.messa ?
-                  <div className="box">
-                    <div className="text">
-                        <div className="text-wrapper text-wrapper-active">
-                          <div className="super-wrapper">
-                          <h2><i className="far fa-envelope"></i><span>from:</span></h2>
-                          <h1>Lumituisku</h1>
-                          <p>Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
-                          <div className="m-btn-wrapper">
-                            <div onClick={()=>this.setState({messa:false, tutorial:true}) } className="buttonGot-2" id="button"  >
-                              <svg>
-                                <rect width='100' height='30'></rect>
-                              </svg>
-                              Yes
-                            </div>
-                            <div className="buttonGot-2" id="button" onClick={()=>{this.setState({messa:false})}} >
-                              <svg>
-                                <rect width='100' height='30'></rect>
-                              </svg>
-                              No
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                      </div>
-                    </div>
-                    :<div className="Modal Modal-ShowUp">
+                    this.firstMessage()
+                    : <div className="Modal Modal-ShowUp">
                     <div className="BG-TEXT">MEMO</div>
                     <div className="pattern pattern-pop"></div>
                     <div className="modal-wrapper">
@@ -1692,34 +1816,34 @@ class Game extends PureComponent {
                           </div>
                         </div>
                     </div>
-                  </div>
-                      :<div className="Modal Modal-ShowUp">
-                      <div className="BG-TEXT">MEMO</div>
-                      <div className="pattern pattern-pop"></div>
-                      <div className="modal-wrapper">
-                          <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
-                          <div className="modal-wrapper-text">
-                            <p>Your level: {this.state.level}</p>
-                            <p>Difficulty: {this.state.difficulty}</p>
-                            <p>You have: {this.state.time} seconds</p>
-                            <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
+</div>
+                      :  <div className="Modal Modal-ShowUp">
+                    <div className="BG-TEXT">MEMO</div>
+                    <div className="pattern pattern-pop"></div>
+                    <div className="modal-wrapper">
+                        <h1 className="Modal_h Modal_h-ShowUp">Quantum Terminal is ready to be started</h1>
+                        <div className="modal-wrapper-text">
+                          <p>Your level: {this.state.level}</p>
+                          <p>Difficulty: {this.state.difficulty}</p>
+                          <p>You have: {this.state.time} seconds</p>
+                          <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
+                        </div>
+                        <div className="buttonGot__wrapper-2">
+                          <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            Start
                           </div>
-                          <div className="buttonGot__wrapper-2">
-                            <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
-                              <svg>
-                                <rect width='100' height='30'></rect>
-                              </svg>
-                              Start
-                            </div>
-                            <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
-                              <svg>
-                                <rect width='100' height='30'></rect>
-                              </svg>
-                              Exit
-                            </div>
+                          <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            Exit
                           </div>
-                      </div>
+                        </div>
                     </div>
+</div>
               :null
           :null}
 
@@ -1732,7 +1856,7 @@ class Game extends PureComponent {
                   <h1 className="Modal_h Modal_h-ShowUp">You failed!</h1>
                   <p>Do you want to restart the terminal?</p>
                   <div className="buttonGot__wrapper-2">
-                    <div  onClick={()=>this.restart()} className="buttonGot-2" id="button" >
+                    <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
                       <svg>
                         <rect width='100' height='30'></rect>
                       </svg>
@@ -1804,7 +1928,7 @@ class Game extends PureComponent {
         <div className="stats__wrapper">
           <div className="stats">
             <div className="stats__item timer">
-              <p>Time left: {this.state.timer ? <span>{this.state.minutes}:{this.state.seconds}</span> :null}   </p>
+              <p id='TimerDisplay'>Time left: {this.state.seconds>0 ? <span>{this.state.minutes}:{this.state.seconds}</span> :null} </p>
             </div>
           </div>
           <div className="stats">
@@ -1824,7 +1948,7 @@ class Game extends PureComponent {
           </div>
           <div className="stats">
             <div className="stats__item">
-              <p>Mistakes:  <span>{this.state.misakes}</span>  </p>
+              <p>Mistakes: {this.state.mistakes} </p>
             </div>
           </div>
           <div className="stats">
@@ -1856,45 +1980,33 @@ class Game extends PureComponent {
             </div>
 
 
-            <div className="footer__right">
+            <div id="playerUI" className="footer__right">
 
-            <div id="player" className="player">
-              <i id="backImage" className="fas fa-step-backward player__item"></i>
-              <i id="swapImage" className="fas fa-play player__item"></i>
-              <i id="stopImage"className="fas fa-stop player__item"></i>
-              <i id="nextImage" className="fas fa-step-forward player__item"></i>
-              <div class="playlist">
-                 <div id="1S" className="song" url="https://www.freesound.org/data/previews/353/353579_5876986-lq.mp3">
-                  <a href="#" target="_blank">Pertrubator</a>
-                 </div>
-                  <div id="2S" className="song" url="https://www.freesound.org/data/previews/353/353432_392324-lq.mp3">
-                    <a href="#" target="_blank">Crystal Castle</a>
-                 </div>
-                 <div id="3S" className="song" url="https://www.freesound.org/data/previews/26/26722_34346-lq.mp3">
-                    <a href="#" target="_blank">Locrian</a>
-                 </div>
-              </div>
-                <div className="equaliser-container equaliser-container-inactive">
-                  <ol className="equaliser-column">
-                    <li className="colour-bar colour-bar-2"></li>
-                  </ol>
-                  <ol className="equaliser-column">
-                    <li className="colour-bar colour-bar-2"></li>
-                  </ol>
-                  <ol className="equaliser-column">
-                    <li className="colour-bar colour-bar-2"></li>
-                  </ol>
-                  <ol className="equaliser-column">
-                    <li className="colour-bar colour-bar-2"></li>
-                  </ol>
-                  <ol className="equaliser-column">
-                    <li className="colour-bar colour-bar-2"></li>
-                  </ol>
+              <div id="player" className="player">
+                <div class="playlist">
+                  <p>{this.state.trackName}</p>
+                </div>
+                  <div className="equaliser-container equaliser-container-inactive">
+                    <ol className="equaliser-column">
+                      <li className="colour-bar colour-bar-2"></li>
+                    </ol>
+                    <ol className="equaliser-column">
+                      <li className="colour-bar colour-bar-2"></li>
+                    </ol>
+                    <ol className="equaliser-column">
+                      <li className="colour-bar colour-bar-2"></li>
+                    </ol>
+                    <ol className="equaliser-column">
+                      <li className="colour-bar colour-bar-2"></li>
+                    </ol>
+                    <ol className="equaliser-column">
+                      <li className="colour-bar colour-bar-2"></li>
+                    </ol>
+                  </div>
                 </div>
               </div>
-            </div>
-
           </div>
+
         </div>
 
           <div className="illustration">

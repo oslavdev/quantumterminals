@@ -12,10 +12,6 @@
 
 
 
-  &:hover{
-    transform: translate(-50%, -50%) rotateY(-30deg) skewY(5deg);
-  }
-
   &:before{
     content: '';
     position: absolute;
@@ -44,6 +40,7 @@
    border-bottom: 20px solid #f9f9f3;
    border-right: 20px solid #f9f9f3;
    box-sizing: border-box;
+   z-index: -111111;
    @media only screen and (max-width:500px){
      display:none;
    }
@@ -63,17 +60,14 @@
   top: 35px;
   left: -30px;
   background: $color-intro-black;
-  background-image: url("https://sno2wman.graphics/13_point_w.ad3af1c3.png");
+  background-image: url("../images/dots.png");
   background-repeat: repeat;
   background-size: 0.5%;
   width: calc(100% + 60px);
   height: calc(100% - 60px);
   transition: .5s;
 
-  animation-name: appU;
-  animation-fill-mode: forwards;
-  animation-duration: .5s;
-  animation-delay: 2s;
+
 
   @media only screen and (max-width:500px){
     left:0;
@@ -129,9 +123,6 @@
   }
 }
 
-.box:hover .text{
-    transform: rotateY(30deg) skewY(-5deg);
-}
 
 @keyframes appU{
   from{
@@ -143,17 +134,23 @@
     top: 30px
   }
 }
-
+.tutorial-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .Tutorial__slide{
   display: none;
 }
 
-.Tutorial__slide-ative{
+.Tutorial__slide-active{
   display: flex!important;
   justify-content: center;
   align-content: center;
+  margin-top: 5px;
 
   P{
+    margin: 0;
     color: white;
   }
 }
@@ -161,4 +158,33 @@
 .tutorialIMG {
   width: 250px;
   height: 150px;
+}
+
+
+#welcometitle{
+  text-align:center!important;
+}
+#welcome{
+display: none;
+justify-content: center!important;
+flex-direction: column!important;
+align-items: center!important;
+padding-top: 90px!important;
+}
+
+#btnwelcome{
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  padding: 0 !important;
+margin: 0;
+}
+
+#welcomepa {
+  text-align:center!important;
+}
+#sliderControl{
+  position: absolute;
+bottom: 15%;
+left: 16%;
 }

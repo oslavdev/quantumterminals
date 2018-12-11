@@ -1372,9 +1372,6 @@ ul {
   top: 0;
   align-items: center; }
 
-.text-wrapper-envelope {
-  margin-top: 70px; }
-
 .Modal__text-wrapper {
   width: 100%;
   height: 100%;
@@ -1716,8 +1713,6 @@ ul {
   perspective: 2000px;
   transition: .5s;
   z-index: 99999999; }
-  .box:hover {
-    transform: translate(-50%, -50%) rotateY(-30deg) skewY(5deg); }
   .box:before {
     content: '';
     position: absolute;
@@ -1742,7 +1737,8 @@ ul {
     background: transparent;
     border-bottom: 20px solid #f9f9f3;
     border-right: 20px solid #f9f9f3;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    z-index: -111111; }
     @media only screen and (max-width: 500px) {
       .box:after {
         display: none; } }
@@ -1763,16 +1759,12 @@ ul {
   top: 35px;
   left: -30px;
   background: #131416;
-  background-image: url("https://sno2wman.graphics/13_point_w.ad3af1c3.png");
+  background-image: url("../images/dots.png");
   background-repeat: repeat;
   background-size: 0.5%;
   width: calc(100% + 60px);
   height: calc(100% - 60px);
-  transition: .5s;
-  animation-name: appU;
-  animation-fill-mode: forwards;
-  animation-duration: .5s;
-  animation-delay: 2s; }
+  transition: .5s; }
   @media only screen and (max-width: 500px) {
     .text {
       left: 0;
@@ -1816,9 +1808,6 @@ ul {
       padding: 0;
       color: white; }
 
-.box:hover .text {
-  transform: rotateY(30deg) skewY(-5deg); }
-
 @keyframes appU {
   from {
     opacity: 0;
@@ -1827,19 +1816,51 @@ ul {
     opacity: 1;
     top: 30px; } }
 
+.tutorial-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .Tutorial__slide {
   display: none; }
 
-.Tutorial__slide-ative {
+.Tutorial__slide-active {
   display: flex !important;
   justify-content: center;
-  align-content: center; }
-  .Tutorial__slide-ative P {
+  align-content: center;
+  margin-top: 5px; }
+  .Tutorial__slide-active P {
+    margin: 0;
     color: white; }
 
 .tutorialIMG {
   width: 250px;
   height: 150px; }
+
+#welcometitle {
+  text-align: center !important; }
+
+#welcome {
+  display: none;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding-top: 90px !important; }
+
+#btnwelcome {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0; }
+
+#welcomepa {
+  text-align: center !important; }
+
+#sliderControl {
+  position: absolute;
+  bottom: 15%;
+  left: 16%; }
 
 .cube-folding {
   width: 50px;
@@ -2207,6 +2228,14 @@ ul {
   padding: 0;
   z-index: -1; }
 
+.Dots-2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -1; }
+
 .dot {
   opacity: 0;
   position: absolute;
@@ -2227,6 +2256,29 @@ ul {
     animation-delay: .7s, .7s;
     animation-duration: 1.1s, 1.6s; }
   .dot:nth-of-type(5) {
+    animation-delay: .8s, .8s;
+    animation-duration: .8s, 1.8s; }
+
+.dot-2 {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  animation: moveLeft  1s infinite linear, moveTop  1.5s infinite linear; }
+  .dot-2:nth-of-type(2) {
+    animation-delay: 1.5s, 1.5s;
+    animation-duration: .9s, 1.4s; }
+  .dot-2:nth-of-type(3) {
+    animation-delay: 1.2s, 1.2s;
+    animation-duration: .8s, 1.3s; }
+  .dot-2:nth-of-type(4) {
+    animation-delay: .7s, .7s;
+    animation-duration: 1.1s, 1.6s; }
+  .dot-2:nth-of-type(5) {
     animation-delay: .8s, .8s;
     animation-duration: .8s, 1.8s; }
 
@@ -2570,6 +2622,11 @@ ul {
   width: 100%;
   width: 100vh; }
 
+.playlist p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #131416; }
+
 .Phone_container {
   background: white;
   display: flex;
@@ -2646,9 +2703,8 @@ ul {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  padding: 0px 95px;
+  padding: 10px 0px;
   width: 390px;
-  position: absolute;
   bottom: 20%; }
 
 .messages__close {
@@ -2665,6 +2721,9 @@ ul {
     transition: .5s; }
     .messages__close i:hover {
       opacity: .6; }
+
+#firstMessage {
+  display: none; }
 
 .messages {
   width: 500px;
@@ -2823,14 +2882,79 @@ ul {
   height: 100vh;
   background: #131416;
   color: white;
-  z-index: 99999999999999999999999999999999999999999999999999;
+  z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column; }
-  .FINAL h1 {
-    font-size: 2.5rem;
-    letter-spacing: 2px; }
+
+#endtitle {
+  position: absolute;
+  top: 50%;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  animation: final;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 2s; }
+
+@keyframes final {
+  from {
+    opacity: 1;
+    transform: translateY(0); }
+  to {
+    opacity: 0;
+    transform: translateY(-20px); } }
+
+.titlesContainer {
+  display: flex;
+  width: 960px;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: translateY(100%);
+  flex-direction: column;
+  animation: container;
+  animation-fill-mode: forwards;
+  animation-duration: 60s;
+  animation-iteration-count: 1;
+  animation-delay: 1s; }
+  .titlesContainer h1 {
+    color: white;
+    font-size: 2.1rem;
+    text-transform: uppercase; }
+  .titlesContainer p {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 2rem; }
+
+@keyframes container {
+  0% {
+    transform: translateY(100%); }
+  100% {
+    transform: translateY(-100%); } }
+
+#linknewgame {
+  color: #131416;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .5s;
+  font-family: 'Montserrat', sans-serif; }
+
+.NEWGAME {
+  font-size: 2.1rem;
+  transition: .5s;
+  background: none;
+  border: 1px solid white;
+  padding: 11px 12px;
+  background: white; }
+  .NEWGAME:hover {
+    background: none;
+    color: #131416;
+    border: 1px solid #131416; }
 
 .container {
   max-width: 960px;
@@ -3791,7 +3915,8 @@ input, button, submit {
   display: flex;
   justify-self: center;
   align-self: center;
-  height: 100%; }
+  height: 100%;
+  position: fixed; }
   .Credits__container {
     position: absolute;
     width: 100%;
@@ -4298,6 +4423,12 @@ input, button, submit {
   top: 40%; }
   .img_cont img {
     width: 100%; }
+
+#startnewgame {
+  background: #131416;
+  padding: 11px 12px;
+  text-transform: uppercase;
+  transition: .5s; }
 
 .Error__container {
   width: 960px;

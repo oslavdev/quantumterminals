@@ -111,12 +111,6 @@ componentDidMount(){
     glitch.setAttribute('src', './soundFX/glitch.mp3');
     glitch.loop = true;
 
-    $('#button').click(function(){
-      intro.pause();
-      glitch.pause();
-      intro.currentTime = 0;
-      glitch.currentTime = 0;
-    })
 
 
     $(document).on('mousemove', function(e){
@@ -125,6 +119,24 @@ componentDidMount(){
         top: e.pageY -300
       })
     })
+
+    var hover = $("#hoverFX")[0];
+    var click = $("#clickFX")[0];
+    var transitionIntro = $("#transitionIntro")[0];
+
+      $("#button").mouseenter(function() {
+        hover.play();
+      });
+
+
+      $('#button').click(function(){
+        click.play();
+        transitionIntro.play();
+        intro.pause();
+        glitch.pause();
+        intro.currentTime = 0;
+        glitch.currentTime = 0;
+      })
 
     var toolTimeline = new TimelineLite();
     var steponeDur = .3;
@@ -407,6 +419,24 @@ document.getElementById('btnFullscreen').addEventListener('click', function() {
 render(){
       return (
         <div className="I-container">
+        <audio id="hoverFX">
+        	<source src="soundFX/hover.mp3"></source>
+        	<source src="soundFX/hover.ogg"></source>
+        	Your browser isn't invited for super fun audio time.
+        </audio>
+        <audio id="clickFX">
+          <source src="soundFX/click.mp3"></source>
+          <source src="soundFX/click.ogg"></source>
+          Your browser isn't invited for super fun audio time.
+        </audio>
+        <audio id="transitionIntro">
+          <source src="soundFX/transitionIntro.mp3"></source>
+          <source src="soundFX/transitionIntro.ogg"></source>
+          Your browser isn't invited for super fun audio time.
+        </audio>
+
+
+
         <div id="pattern" className="pattern"></div>
         <div class="light"></div>
           <div className="intro-container">

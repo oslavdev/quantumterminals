@@ -708,6 +708,7 @@ class Memos extends PureComponent {
 
 }
 
+
   checkprops = () => (
     this.props.user.user ?
       setTimeout(()=>{
@@ -738,8 +739,8 @@ class Memos extends PureComponent {
           <Dots/>
           <div className="memo__container">
             <div className="memo__container-header">
-              <h1><span><i className="far fa-envelope"></i>from:</span> Unknown</h1>
-              <p>Location: Citadel.qm(port:111)</p>
+            <h1><span><i className="far fa-envelope"></i>from:</span> Unknown</h1>
+            <p>Location: Citadel.qm(port:111)</p>
             </div>
 
             <div className="memo__container-content">

@@ -25,10 +25,10 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Link id="logo" to="/" className="logo__container">
+        <div id="logo"  className="logo__container">
           <img src="images/Logo-1.png" alt="Logo" className="logo logo--1" />
           <img src="images/Logo-2.png" alt="Logo" className="logo logo--2" />
-        </Link>
+        </div>
       </header>
     )
   }

@@ -6,20 +6,17 @@ class List extends Component {
     let arr = users;
     let x;
     let index = 5;
-    arr.sort((a,b) => a.score < b.score);
-    let newArr  =  arr.slice(0, index);
-    return x = newArr.slice(0, index).map(item => (
+    arr.sort((a,b) => b.score - a.score);
+    return x = arr.slice(0, index).map(item => (
       <div className="board-grid board-grid--2 ">
         <div className="board-grid__item board-grid--2__item"><p>{item.name}</p></div>
-        <div className="board-grid__item board-grid--2__item"><p>{item.wrong}</p></div>
+        <div className="board-grid__item board-grid--2__item"><p>{item.mistakes}</p></div>
         <div className="board-grid__item board-grid--2__item"><p>{item.score}</p></div>
         <div className="board-grid__item board-grid--2__item"><p>{item.difficulty}</p></div>
         <div className="board-grid__item board-grid--2__item"><p>{item.level}</p></div>
       </div>
     ))
   }
-
-
 
 
   render(){
