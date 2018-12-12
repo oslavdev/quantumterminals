@@ -1,13 +1,14 @@
 import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
-import { getUser, updateUser } from '../../actions';
+import { startGame, getUser, updateUser } from '../../actions';
 import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax";
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Sound from 'react-sound';
-
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 import Header from './header/header';
 import Dots from '../Dots/dots';
@@ -17,6 +18,7 @@ import Burger from '../Burger/burger';
 import Buttons from './buttons/buttons';
 import Gameboard from './board/gameboard';
 import Music from './music/Music';
+
 
 import Messages from '../Messages/DB/Messages';
 import Adv from '../Messages/DB/adv';
@@ -57,6 +59,9 @@ class Game extends PureComponent {
           this.messageShow = this.messageShow.bind(this);
           this.soundManager =this.soundManager.bind(this);
 
+          this.onHover = this.onHover.bind(this);
+          this.onClick = this.onClick.bind(this);
+
 
           this.state = {
             userdata:{
@@ -65,6 +70,7 @@ class Game extends PureComponent {
               score:'',
               level:'',
             },
+            game:false,
             name: "",
             level: "",
             score: '',
@@ -85,7 +91,6 @@ class Game extends PureComponent {
             seconds:"0",
             start:false,
             showMessage: true, // Intro Message
-            game: false,
             gameplay:false, //Countdown before start
             restart: false,
             timeout: false,
@@ -103,7 +108,6 @@ class Game extends PureComponent {
             tiles: '',
             firstEnter: false,
             openMessage: false,
-            firstEnter: true,
             receivedMessage: false,
             timer: false,
             firstEver: true,
@@ -116,7 +120,6 @@ class Game extends PureComponent {
             slideIndex: "1",
             firstMessageCheck: true,
             messageCondition: false,
-            firstEnter: false,
             start: '1',
             length: '3',
             break: false,
@@ -129,8 +132,9 @@ class Game extends PureComponent {
             condition:Sound.status.PLAYING,
             soundScript: 'none',
             trackName:'',
-            executed: false,
-            music:false,
+            playing: false,
+            firstTime: true,
+            src:'',
             messagesData:{
               _id:this.props.user.login.id,
               messages:[],
@@ -142,53 +146,50 @@ class Game extends PureComponent {
 
         }
 
+        onHover(){
+            var hover = $("#hoverFX")[0];
+              hover.play();
+        }
+
+        onClick(){
+          var click = $("#clickFX")[0];
+            click.play();
+        }
 
 
         firstMessage(){
 
+              var notification = document.getElementById("notification");
+              notification.loop = false;
+              notification.play();
 
-            var message = document.createElement('audio');
-            message.setAttribute('src', './soundFX/notification.mp3');
-
-            var messageTimeline = new TimelineLite({onComplete:message.pause()});
-
-            messageTimeline.add(TweenMax.fromTo('#firstMessage', .1, {display:"none"}, {display:"flex"}),1);
-            messageTimeline.add(TweenMax.fromTo('#firstMessage', .5, {opacity:"0"}, {opacity:"1", onStart:function(){message.play()}}),1.2);
-            messageTimeline.add(TweenMax.fromTo('#from', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),1.8);
-            messageTimeline.add(TweenMax.fromTo('#sender', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.1);
-            messageTimeline.add(TweenMax.fromTo('#message', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.3);
-            messageTimeline.add(TweenMax.fromTo('#message-btns', .5, {opacity:"0", y:'20'}, {opacity:"1", y:"0"}),2.5);
-
-
-            return(
-              <div id="firstMessage" className="box">
-                <div className="text">
-                    <div className="text-wrapper text-wrapper-active">
-                      <div className="super-wrapper">
-                      <h2 id="from"><i className="far fa-envelope"></i><span>from:</span></h2>
-                      <h1 id="sender">Lumituisku</h1>
-                      <p id="message" >Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
-                      <div id="message-btns" className="m-btn-wrapper">
-                        <div onClick={()=>this.setState({messa:false, tutorial:true}) } className="buttonGot-2" id="button"  >
-                          <svg>
-                            <rect width='100' height='30'></rect>
-                          </svg>
-                          Yes
-                        </div>
-                        <div className="buttonGot-2" id="button" onClick={()=>{this.setState({messa:false})}} >
-                          <svg>
-                            <rect width='100' height='30'></rect>
-                          </svg>
-                          No
+              return(
+                <div id="firstMessage" className="box">
+                  <div className="text">
+                      <div className="text-wrapper text-wrapper-active">
+                        <div className="super-wrapper">
+                        <h2 id="from"><i className="far fa-envelope"></i><span>from:</span></h2>
+                        <h1 id="sender">Lumituisku</h1>
+                        <p id="message" >Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
+                        <div id="message-btns" className="m-btn-wrapper">
+                          <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.setState({messa:false, tutorial:true}); this.onClick(); }} className="buttonGot-2" id="button"  >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            Yes
+                          </div>
+                          <div onMouseEnter={()=>this.onHover()}  className="buttonGot-2" id="button" onClick={()=>{this.setState({messa:false}); this.onClick();}} >
+                            <svg>
+                              <rect width='100' height='30'></rect>
+                            </svg>
+                            No
+                          </div>
                         </div>
                       </div>
-                    </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-            )
-
-
+              )
 
         }
 
@@ -410,6 +411,10 @@ class Game extends PureComponent {
             }
           }
 
+        var notification = document.getElementById("notification");
+        notification.loop = false;
+        notification.play();
+
         setTimeout(()=>{
           this.setState({
             receivedMessage:true,
@@ -507,6 +512,12 @@ class Game extends PureComponent {
           document.querySelector(".blocker").classList.add('blocker-active');
           let level = this.state.level;
 
+          let track = this.state.src;
+          let song = document.getElementById(`${track}`);
+          let standby = document.getElementById(`Standby`);
+          song.pause();
+          standby.play();
+
           for (let i=1; i<31; i++){
             let playground = document.querySelector(`.playground__item--${i}`);
             let button = document.querySelector(`#button${i}`);
@@ -580,7 +591,14 @@ class Game extends PureComponent {
 
         win(){
           document.querySelector(".blocker").classList.add('blocker-active');
-          this.setState({break:false})
+          let track = this.state.src;
+          let song = document.getElementById(`${track}`);
+          let standby = document.getElementById(`Standby`);
+          let winSound = document.getElementById(`Win`);
+          song.pause();
+          standby.play();
+          winSound.play();
+
           let level = this.state.level;
           let curLevel = parseInt(parseInt(level)+parseInt(1));
           let score = parseInt(parseInt(this.state.score) + parseInt(this.state.totalscore));
@@ -609,7 +627,30 @@ class Game extends PureComponent {
             })
             this.props.dispatch(updateUser(this.state.userdata));
           } else if (curLevel > 12){
-            alert("FINAL")
+
+                var final = document.getElementById("Final");
+                final.loop = true;
+                final.play();
+                var song1 = document.getElementById("Song1");
+                song1.loop = true;
+                song1.pause();
+                var song2 = document.getElementById("Song2");
+                song2.loop = true;
+                song2.pause();
+                var song3 = document.getElementById("Song3");
+                song3.loop = true;
+                song3.pause();
+                var song4 = document.getElementById("Song4");
+                song4.loop = true;
+                song4.pause();
+                standby.loop = true;
+                standby.pause();
+
+
+            setTimeout(()=>{
+              this.props.history.push("/menu");
+            }, 240000)
+
             this.setState({final: true})
             this.setState({
                 userdata:{
@@ -619,6 +660,8 @@ class Game extends PureComponent {
                   level:"1",
                   firstEnter: true,
                   firstEver: true,
+                  final: true,
+                  firstStart: true,
                 },
                 pattern:"",
                 path:'',
@@ -628,7 +671,8 @@ class Game extends PureComponent {
                 streak:'',
                 clicked: false,
                 numberofmessage:curLevel,
-                score: '0'
+                score: '0',
+                final: true,
             })
             this.props.dispatch(updateUser(this.state.userdata));
           }
@@ -656,6 +700,9 @@ class Game extends PureComponent {
       }
 
       correct(){
+        var success = document.getElementById("Success");
+        success.loop = false;
+        success.play();
         var correct = new TimelineLite();
         correct.add(TweenMax.fromTo(".win", .1, {display:"none"}, {display:"flex"}),);
         correct.add(TweenMax.fromTo(".win", .5, {opacity:"0", y:"0"}, {opacity:"1", y:"5"}));
@@ -667,24 +714,42 @@ class Game extends PureComponent {
 
       componentDidMount(){
 
-
         this.props.dispatch(getUser(this.props.user.login.id))
 
-        setTimeout(()=>{
-          let intro = "intro";
-          this.setState({soundScript:"intro"})
-          this.soundManager(intro);
-        }, 3000)
+          var standby = document.getElementById("Standby");
+          var intro = document.getElementById("intro");
+
+          var final = document.getElementById("Final");
+          final.loop = true;
+          final.pause();
+          var song1 = document.getElementById("Song1");
+          song1.loop = true;
+          song1.pause();
+          var song2 = document.getElementById("Song2");
+          song2.loop = true;
+          song2.pause();
+          var song3 = document.getElementById("Song3");
+          song3.loop = true;
+          song3.pause();
+          var song4 = document.getElementById("Song4");
+          song4.loop = true;
+          song4.pause();
 
 
-        var hover = $("#hoverFX")[0];
-        var click = $("#clickFX")[0];
-        var transitionIntro = $("#transitionIntro")[0];
+          if (standby.paused){
+            standby.play();
+          }
+          if (!intro.paused){
+            intro.pause();
+          }
+
+          var hover = $("#hoverFX")[0];
+          var click = $("#clickFX")[0];
+          var transitionIntro = $("#transitionIntro")[0];
 
           $(".buttonGot-2").mouseenter(function() {
             hover.play();
           });
-
 
           $('.buttonGot-2').click(function(){
             click.play();
@@ -886,11 +951,17 @@ class Game extends PureComponent {
                                     this.setState({
                                       score:score
                                     })
+                                    var win = document.getElementById("Button");
+                                    win.loop = false;
+                                    win.play();
                                     this.scoreanimation(z, sNum);
                                   } else {
                                     $("#" + e.target.id).removeClass("activebutton").addClass("duplicatebutton");
                                     let mistake = this.state.mistakes;
                                     let sum = parseInt(parseInt(mistake) + parseInt(1));
+                                    var fail = document.getElementById("ButtonFail");
+                                    fail.loop = false;
+                                    fail.play();
                                     console.log("mistakes: " + mistake)
                                     console.log("sum: " + sum)
                                     clicked = false;
@@ -1026,6 +1097,12 @@ class Game extends PureComponent {
           let select = path;
           let pass = "";
 
+          var alarm = document.getElementById("Alarm");
+          alarm.pause();
+
+          var loaded = document.getElementById("Loaded");
+          loaded.loop = false;
+          loaded.play();
 
           for (let i=0; i<path.length; i++){
             pass = pass+path[i];
@@ -1066,6 +1143,7 @@ class Game extends PureComponent {
                     }
                   });
                   document.querySelector(".blocker").classList.remove('blocker-active');
+                  loaded.pause();
                 }, `${timeout}`)
 
           });
@@ -1278,6 +1356,12 @@ class Game extends PureComponent {
               this.fail();
             }
 
+            if(this.state.final === true){
+              this.setState({timer: false})
+              clearInterval(gametime);
+            }
+
+
             if(this.state.win===true){
               this.setState({timer: false})
               clearInterval(gametime);
@@ -1313,7 +1397,67 @@ class Game extends PureComponent {
               messages:[],
             },
           })
-          this.soundManager(gameplay);
+
+          var alarm = document.getElementById("Alarm");
+          alarm.loop = false;
+          alarm.play();
+
+          var song1 = document.getElementById("Song1");
+          song1.loop = true;
+          var song2 = document.getElementById("Song2");
+          song2.loop = true;
+          var song3 = document.getElementById("Song3");
+          song3.loop = true;
+          var song4 = document.getElementById("Song4");
+          song4.loop = true;
+
+
+          function getRandomInt(min, max) {
+              min = Math.ceil(1);
+              max = Math.floor(4);
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+          let x = getRandomInt();
+          let name, playing, src;
+          switch (x){
+            case 1 :
+              src= "Song1";
+              song1.play();
+              name = 'Press On';
+              playing = true;
+              break;
+            case 2:
+              src= "Song2";
+              song2.play();
+              name = 'FutureWorld Dark';
+              playing = true;
+              break;
+            case 3:
+              src= "Song3";
+              song3.play();
+              name = 'Press On 2';
+              playing = true;
+              break;
+            case 4:
+              src= "Song4";
+              song4.play();
+              name = 'DogFight';
+              playing = true;
+              break;
+            default:
+              break;
+          }
+
+          var standby = document.getElementById("Standby");
+          standby.loop = true;
+          standby.pause();
+
+
+          this.setState({
+            src: src,
+            trackName:name,
+            playing: true
+          })
 
           let interval = setInterval(() => {
               this.setState({
@@ -1331,25 +1475,12 @@ class Game extends PureComponent {
           }, 1000);
       }
 
-      messageProps = (user) =>(
-        user.user ?
-          user.user.messages ?
-            this.state.props ?
-              this.setState({
-                firstEnter: user.user.firstEnter,
-                props:false
-              })
-            :null
-          :null
-        :null
-      )
+
 
       checkProps = (user) => (
           user.user ?
             user.user.messages ?
             setTimeout(()=>{
-              console.log("Executed")
-              console.log(user.user.final)
               if (user.user.final === false){
                 this.setState({
                   showResults: true,
@@ -1357,9 +1488,10 @@ class Game extends PureComponent {
                   level: user.user.level,
                   name: user.user.name,
                   overall: user.user.score,
-                  game:true,
                   mistakes: user.user.mistakes,
                   totalscore: user.user.score,
+                  firstEnter: user.user.firstEnter,
+                  game:true,
                  })
 
                if (this.state.firstMessageCheck === true){
@@ -1372,7 +1504,7 @@ class Game extends PureComponent {
                    } else {
                      this.setState({messageCondition:false})
                    }
-                 },1000)
+                 },5000)
                  this.setState({firstMessageCheck:false})
                }
                this.setState({firstMessageCheck:false})
@@ -1436,7 +1568,7 @@ class Game extends PureComponent {
                <h1 id="welcometitle">You received: {length} {length>1 ? 'messages' :'message'}</h1>
                <p id="welcomepa">Do you want to read?</p>
                <div id="btnwelcome" className="m-btn-wrapper">
-                 <div  onClick={()=>this.showSlider()}
+                 <div  onMouseEnter={()=>this.onHover()} onClick={()=>{this.showSlider(); this.onClick() }}
                        className="buttonGot-2"
                        id="button" >
                    <svg>
@@ -1445,8 +1577,11 @@ class Game extends PureComponent {
                    Yes
                  </div>
                  <div
-                   onClick={()=>this.setState({receivedMessage:false,
-                   showMessage:true})}
+                    onMouseEnter={()=>this.onHover()}
+                   onClick={()=>{this.setState({receivedMessage:false,
+                   showMessage:true});
+                   this.onClick();
+                  }}
                    className="buttonGot-2"
                    id="button"  >
                    <svg>
@@ -1623,30 +1758,9 @@ class Game extends PureComponent {
 
       <div className="game__container">
 
-      <audio id="hoverFX">
-        <source src="soundFX/hover.mp3"></source>
-        <source src="soundFX/hover.ogg"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio>
-
-      <audio id="clickFX">
-        <source src="soundFX/click.mp3"></source>
-        <source src="soundFX/click.ogg"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio>
-
         <div className="noDisp">
-          <Sound
-             url={this.state.song}
-             playStatus={this.state.condition}
-             playFromPosition={0}
-             loop={true}
-             onLoading={this.handleSongLoading}
-             onPlaying={this.handleSongPlaying}
-             onFinishedPlaying={this.handleSongFinishedPlaying}
-           />
+
           {this.checkProps(user)}
-          {this.messageProps(user)}
         </div>
 
         {
@@ -1666,7 +1780,7 @@ class Game extends PureComponent {
               <h1>Sound FX</h1>
               <p>BIG5AUDIO_UI & UX</p>
               <div className="NEWGAME">
-                <Link id="linknewgame" to="/difficulty">START NEW GAME+</Link>
+                <Link id="linknewgame" to="/menu">START NEW GAME+</Link>
               </div>
             </div>
             <div className="Dots-2">
@@ -1732,15 +1846,17 @@ class Game extends PureComponent {
                 <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
               </div>
               <div id="startButtons" className="buttonGot__wrapper-2">
-                <div  onClick={()=>
-                  this.run()
+                <div
+                onMouseEnter={()=>this.onHover()}
+                onClick={()=>
+                  {this.run(); this.onClick();}
                   } className="buttonGot-2" id="button" >
                   <svg>
                     <rect width='100' height='30'></rect>
                   </svg>
                   Start
                 </div>
-                <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                <div  onMouseEnter={()=>this.onHover()}  onClick={()=>{this.props.history.push("/menu"); this.onClick();}} className="buttonGot-2" id="button" >
                   <svg>
                     <rect width='100' height='30'></rect>
                   </svg>
@@ -1772,7 +1888,7 @@ class Game extends PureComponent {
                     <button className="btnslider" onClick={()=>this.tutorialSlider(-1)}><i class="fas fa-chevron-left"></i> Previous</button>
                     <button className="btnslider" onClick={()=>this.tutorialSlider(1)}>Next <i class="fas fa-chevron-right"></i></button>
                   </div>
-                  <div  onClick={()=>this.setState({tutorial:false})} className="buttonGot-2" id="button" >
+                  <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.setState({tutorial:false}); this.onClick();}} className="buttonGot-2" id="button" >
                     <svg>
                       <rect width='100' height='30'></rect>
                     </svg>
@@ -1786,8 +1902,8 @@ class Game extends PureComponent {
           :null}
 
         {this.state.showMessage ?
-              this.state.game ?
-                this.state.firstEnter ?
+          this.state.game ?
+            this.state.firstEnter ?
                   this.state.messa ?
                     this.firstMessage()
                     : <div className="Modal Modal-ShowUp">
@@ -1802,13 +1918,13 @@ class Game extends PureComponent {
                           <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
                         </div>
                         <div className="buttonGot__wrapper-2">
-                          <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                          <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.run(); this.onClick();}} className="buttonGot-2" id="button" >
                             <svg>
                               <rect width='100' height='30'></rect>
                             </svg>
                             Start
                           </div>
-                          <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                          <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.props.history.push("/menu"); this.onClick();}} className="buttonGot-2" id="button" >
                             <svg>
                               <rect width='100' height='30'></rect>
                             </svg>
@@ -1829,13 +1945,13 @@ class Game extends PureComponent {
                           <p>Streak: {this.state.currentStreak} / {this.state.streak}</p>
                         </div>
                         <div className="buttonGot__wrapper-2">
-                          <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                          <div  onMouseEnter={()=>this.onHover()}  onClick={()=>{this.run(); this.onClick();}} className="buttonGot-2" id="button" >
                             <svg>
                               <rect width='100' height='30'></rect>
                             </svg>
                             Start
                           </div>
-                          <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                          <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.props.history.push("/menu"); this.onClick();}} className="buttonGot-2" id="button" >
                             <svg>
                               <rect width='100' height='30'></rect>
                             </svg>
@@ -1843,9 +1959,8 @@ class Game extends PureComponent {
                           </div>
                         </div>
                     </div>
-</div>
-              :null
-          :null}
+                </div>
+          :null:null}
 
           {this.state.fail ?
             <div className="Modal Modal-ShowUp">
@@ -1856,13 +1971,13 @@ class Game extends PureComponent {
                   <h1 className="Modal_h Modal_h-ShowUp">You failed!</h1>
                   <p>Do you want to restart the terminal?</p>
                   <div className="buttonGot__wrapper-2">
-                    <div  onClick={()=>this.run()} className="buttonGot-2" id="button" >
+                    <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.run(); this.onClick();}} className="buttonGot-2" id="button" >
                       <svg>
                         <rect width='100' height='30'></rect>
                       </svg>
                       Restart
                     </div>
-                    <div  onClick={()=>this.props.history.push("/menu")} className="buttonGot-2" id="button" >
+                    <div  onMouseEnter={()=>this.onHover()} onClick={()=>{this.props.history.push("/menu"); this.onClick();}} className="buttonGot-2" id="button" >
                       <svg>
                         <rect width='100' height='30'></rect>
                       </svg>
@@ -1881,7 +1996,7 @@ class Game extends PureComponent {
                   <div className="modal-wrapper">
                     <h1 className="Modal_h Modal_h-ShowUp">You won!</h1>
                     <div className="buttonGot__wrapper-2">
-                      <div onClick={()=>this.receiveMessages()} className="buttonGot-2" id="button" >
+                      <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.receiveMessages(); this.onClick();}} className="buttonGot-2" id="button" >
                         <svg>
                           <rect width='100' height='30'></rect>
                         </svg>
@@ -1980,35 +2095,38 @@ class Game extends PureComponent {
             </div>
 
 
-            <div id="playerUI" className="footer__right">
 
-              <div id="player" className="player">
-                <div class="playlist">
-                  <p>{this.state.trackName}</p>
-                </div>
-                  <div className="equaliser-container equaliser-container-inactive">
-                    <ol className="equaliser-column">
-                      <li className="colour-bar colour-bar-2"></li>
-                    </ol>
-                    <ol className="equaliser-column">
-                      <li className="colour-bar colour-bar-2"></li>
-                    </ol>
-                    <ol className="equaliser-column">
-                      <li className="colour-bar colour-bar-2"></li>
-                    </ol>
-                    <ol className="equaliser-column">
-                      <li className="colour-bar colour-bar-2"></li>
-                    </ol>
-                    <ol className="equaliser-column">
-                      <li className="colour-bar colour-bar-2"></li>
-                    </ol>
+              <div id="playerUI" className="footer__right">
+                {this.state.playing ?
+                <div id="player" className="player">
+                  <div class="playlist">
+                    <p>{this.state.trackName}</p>
                   </div>
+                    <div className="equaliser-container">
+                      <ol className="equaliser-column">
+                        <li className="colour-bar colour-bar-2"></li>
+                      </ol>
+                      <ol className="equaliser-column">
+                        <li className="colour-bar colour-bar-2"></li>
+                      </ol>
+                      <ol className="equaliser-column">
+                        <li className="colour-bar colour-bar-2"></li>
+                      </ol>
+                      <ol className="equaliser-column">
+                        <li className="colour-bar colour-bar-2"></li>
+                      </ol>
+                      <ol className="equaliser-column">
+                        <li className="colour-bar colour-bar-2"></li>
+                      </ol>
+                    </div>
+                  </div>
+                   :null}
                 </div>
-              </div>
-          </div>
+
+
 
         </div>
-
+  </div>
           <div className="illustration">
             <img src="images/ill.png" alt="img"></img>
           </div>

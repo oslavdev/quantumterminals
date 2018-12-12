@@ -9,8 +9,6 @@ import White from './white';
 class Intro extends Component {
 
 transition(){
-  var audioplay = document.createElement('audio');
-  audioplay.setAttribute('src', './music/intro.mp3');
 
   var transitionTimeline = new TimelineLite();
 
@@ -90,7 +88,7 @@ transition(){
   transitionTimeline.add(TweenMax.to('#apocircle', .1, {display:"none"}), 4.6);
   transitionTimeline.add(TweenMax.to('#circlewrap', .1, {display:"none"}), 4.6);
 
-  transitionTimeline.add(TweenMax.fromTo('#logo', 3, {opacity:"0"}, {opacity:"1", onStart:function(){audioplay.play()}}), 5.1);
+  transitionTimeline.add(TweenMax.fromTo('#logo', 3, {opacity:"0"}, {opacity:"1"}), 5.1);
   transitionTimeline.add(TweenMax.fromTo('#logo', 1.5, {y:"50"}, { ease:Power2.easeOut, y:"0"}), 8);
 
   transitionTimeline.add(TweenMax.fromTo('#btn1', .5, { y:"25", opacity:"0"}, { y:"0",opacity:"1"}), 8.3);
@@ -103,13 +101,36 @@ transition(){
 
 componentDidMount(){
 
-    var intro = document.createElement('audio');
-    intro.setAttribute('src', './music/introambient.mp3');
+    var intro = document.getElementById("intro");
     intro.loop = true;
+    intro.pause();
 
-    var glitch = document.createElement('audio');
-    glitch.setAttribute('src', './soundFX/glitch.mp3');
+    var glitch = document.getElementById("glitch");
     glitch.loop = true;
+    glitch.play();
+
+    var noise = document.getElementById("noise");
+    noise.loop = true;
+    noise.play();
+
+    var final = document.getElementById("Final");
+    final.loop = true;
+    final.pause();
+    var song1 = document.getElementById("Song1");
+    song1.loop = true;
+    song1.pause();
+    var song2 = document.getElementById("Song2");
+    song2.loop = true;
+    song2.pause();
+    var song3 = document.getElementById("Song3");
+    song3.loop = true;
+    song3.pause();
+    var song4 = document.getElementById("Song4");
+    song4.loop = true;
+    song4.pause();
+    var standby = document.getElementById("Standby");
+    standby.loop = true;
+    standby.pause();
 
 
 
@@ -132,10 +153,13 @@ componentDidMount(){
       $('#button').click(function(){
         click.play();
         transitionIntro.play();
-        intro.pause();
         glitch.pause();
+        noise.pause();
         intro.currentTime = 0;
         glitch.currentTime = 0;
+        setTimeout(()=>{
+          intro.play();
+        }, 4500)
       })
 
     var toolTimeline = new TimelineLite();
@@ -151,7 +175,6 @@ componentDidMount(){
       },
 
       {
-        onStart:function(){intro.play()},
         bottom: "50%",
         height: "7",
         width: "1",
@@ -419,21 +442,8 @@ document.getElementById('btnFullscreen').addEventListener('click', function() {
 render(){
       return (
         <div className="I-container">
-        <audio id="hoverFX">
-        	<source src="soundFX/hover.mp3"></source>
-        	<source src="soundFX/hover.ogg"></source>
-        	Your browser isn't invited for super fun audio time.
-        </audio>
-        <audio id="clickFX">
-          <source src="soundFX/click.mp3"></source>
-          <source src="soundFX/click.ogg"></source>
-          Your browser isn't invited for super fun audio time.
-        </audio>
-        <audio id="transitionIntro">
-          <source src="soundFX/transitionIntro.mp3"></source>
-          <source src="soundFX/transitionIntro.ogg"></source>
-          Your browser isn't invited for super fun audio time.
-        </audio>
+
+
 
 
 

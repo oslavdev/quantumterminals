@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getUser } from '../../../actions';
-
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 import Header from '../../../components/Header/header';
 import Burger from '../../../components/Burger/burger';
@@ -737,7 +738,7 @@ class Memos extends PureComponent {
           <Header/>
           <Decor/>
           <Dots/>
-          <div className="memo__container">
+          <div data-simplebar className="memo__container">
             <div className="memo__container-header">
             <h1><span><i className="far fa-envelope"></i>from:</span> Unknown</h1>
             <p>Location: Citadel.qm(port:111)</p>

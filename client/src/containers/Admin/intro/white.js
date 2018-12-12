@@ -12,12 +12,10 @@ class White extends Component{
 
   componentDidMount(){
 
-    var hover = $("#btn2Hover")[0];
+
     var click = $("#btn2Click")[0];
 
-      $(".list__item").mouseenter(function() {
-        hover.play();
-      });
+
 
       $(".list__item").click(function() {
         click.play();
@@ -57,11 +55,7 @@ class White extends Component{
   render(){
     return(
       <div id="white" className="white">
-        <audio id="btn2Hover">
-          <source src="soundFX/btn2Hover.mp3"></source>
-          <source src="soundFX/btn2Hover.ogg"></source>
-          Your browser isn't invited for super fun audio time.
-        </audio>
+        
 
         <audio id="btn2Click">
           <source src="soundFX/button2Click.mp3"></source>

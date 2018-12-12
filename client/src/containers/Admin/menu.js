@@ -13,24 +13,30 @@ import Footer from '../../components/Footer/footer';
 
 class Menu extends PureComponent {
 
-  state = {
-    formdata:{
-      _id:this.props.user.login.id,
-      score:"0",
-      level:"1",
-      mistakes:"0",
-      time:"0",
-      difficulty:"Easy",
-      best:"0",
-      firstStart: true,
-      firstEnter: true,
-      firstEver: true,
-      messages: [],
-    },
-    received: false,
-    show: true
+  constructor(props){
+    super(props);
+    this.state = {
+      formdata:{
+        _id:this.props.user.login.id,
+        score:"0",
+        level:"1",
+        mistakes:"0",
+        time:"0",
+        difficulty:"Easy",
+        best:"0",
+        firstStart: true,
+        firstEnter: true,
+        firstEver: true,
+        messages: [],
+      },
+      received: false,
+      show: true
 
+    }
+    this.onHover = this.onHover.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
+
 
   componentWillMount(){
       this.props.dispatch(getUser(this.props.user.login.id))
@@ -44,8 +50,40 @@ class Menu extends PureComponent {
       $(".btn1", this).toggleClass("btn1-active");
     })
 
+    var final = document.getElementById("Final");
+    final.loop = true;
+    final.pause();
+    var song1 = document.getElementById("Song1");
+    song1.loop = true;
+    song1.pause();
+    var song2 = document.getElementById("Song2");
+    song2.loop = true;
+    song2.pause();
+    var song3 = document.getElementById("Song3");
+    song3.loop = true;
+    song3.pause();
+    var song4 = document.getElementById("Song4");
+    song4.loop = true;
+    song4.pause();
+    var standby = document.getElementById("Standby");
+    standby.loop = true;
+    standby.pause();
 
+    var intro = document.getElementById("intro");
+    if (intro.paused){
+      intro.play();
+    }
 
+  }
+
+  onHover(){
+      var hover = $("#hoverFX")[0];
+        hover.play();
+  }
+
+  onClick(){
+    var click = $("#clickFX")[0];
+      click.play();
   }
 
 
@@ -99,22 +137,22 @@ class Menu extends PureComponent {
   continue = (user) =>(
     user ?
       user.firstStart ?
-        user.final ?
-        <div id="Continue"onClick={()=>this.props.history.push("/difficulty")} className="list__item list__item-continue">
-          <p  className="link">NEW GAME +</p>
-            <div className="btn btn1"></div>
-            <div className="btn btn2"></div>
-         </div>
-        :<div id="Continue"className="list__item list__item-inactive list__item-continue">
-            <p  className="link">CONTINUE</p>
-            <div className="btn btn1"></div>
-            <div className="btn btn2"></div>
-          </div>
-      :<div id="Continue" onClick={()=>this.props.history.push("/game")} className="list__item list__item-continue">
-        <p className="link">CONTINUE</p>
-        <div className="btn btn1"></div>
-        <div className="btn btn2"></div>
-      </div>
+        this.props.user.user.final ?
+          <div id="Continue"onClick={()=>this.props.history.push("/difficulty")} className="list__item list__item-continue">
+            <p  className="link">NEW GAME +</p>
+              <div className="btn btn1"></div>
+              <div className="btn btn2"></div>
+           </div>
+          :<div id="Continue"className="list__item list__item-inactive list__item-continue">
+              <p  className="link">CONTINUE</p>
+              <div className="btn btn1"></div>
+              <div className="btn btn2"></div>
+            </div>
+        :<div id="Continue" onClick={()=>this.props.history.push("/game")} className="list__item list__item-continue">
+          <p className="link">CONTINUE</p>
+          <div className="btn btn1"></div>
+          <div className="btn btn2"></div>
+        </div>
     :null
   )
 
@@ -142,7 +180,7 @@ class Menu extends PureComponent {
               <div id="q" className="q">
 
 
-                <Link  to="/difficulty" onClick={this.clearData}
+                <Link  onMouseEnter={()=>this.onHover()}  to="/difficulty" onClick={this.clearData}
                       className="buttonGot-2"
                       id="button" >
                   <svg>
@@ -151,7 +189,7 @@ class Menu extends PureComponent {
                   Yes
                 </Link>
 
-                  <div onClick={this.close}
+                  <div onMouseEnter={()=>this.onHover()} onClick={()=>{this.close();this.onClick()}}
                         className="buttonGot-2"
                         id="button" >
                     <svg>
@@ -199,8 +237,8 @@ class Menu extends PureComponent {
                         this.state.show ?
                           <div className="support__container">
                             <div className="support__container-content">
-                              <p>It's just the beginning. This is a beta version of te game. There will be much more. </p>
-                              <div className="buttonGot__wrapper">
+                              <p>It's just the beginning. This is a beta version of the game. There will be much more. </p>
+                              <div onMouseEnter={()=>this.onHover()} onClick={()=>this.onClick()} className="buttonGot__wrapper">
                                 <Link className="buttonGot " id="button" to="/about" >
                                   <svg>
                                     <rect width='100' height='30'></rect>

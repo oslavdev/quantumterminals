@@ -11,9 +11,117 @@
     <title> "Memo" the game | Unlock the quantum memory </title>
   </head>
   <body>
+    <audio id="notification">
+      <source src="soundFX/notification.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="hoverFX">
+      <source src="soundFX/hover.mp3"></source>
+      <source src="soundFX/hover.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="clickFX">
+      <source src="soundFX/click.mp3"></source>
+      <source src="soundFX/click.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="transitionIntro">
+      <source src="soundFX/transitionIntro.mp3"></source>
+      <source src="soundFX/transitionIntro.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="intro">
+      <source src="music/intro.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="noise">
+      <source src="music/introambient.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="glitch">
+      <source src="soundFX/glitch.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Standby">
+      <source src="music/standby.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Song1">
+      <source src="music/gameplay/FutureWorld_PressOn_Loop.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Song2">
+      <source src="music/gameplay/FutureWorld_Dark_Loop_03.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Song3">
+      <source src="music/gameplay/FutureWorld_PressOn_Loop_02.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Song4">
+      <source src="music/gameplay/Military_DogFight_Loop.ogg"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Final">
+      <source src="music/final/islands.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Alarm">
+      <source src="soundFX/alarm.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Button">
+      <source src="soundFX/button31.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="ButtonFail">
+      <source src="soundFX/button45.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Loaded">
+      <source src="soundFX/loaded.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Success">
+      <source src="soundFX/success.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="Win">
+      <source src="soundFX/win.mp3"></source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <script>
+      var intro = document.getElementById("intro");
+      intro.loop = true;
+      intro.pause();
+      var glitch = document.getElementById("glitch");
+      glitch.loop = true;
+      glitch.pause();
+      var noise = document.getElementById("noise");
+      noise.loop = true;
+      noise.pause();
+      var standby = document.getElementById("Standby");
+      standby.loop = true;
+      standby.pause();
+      var Song1 = document.getElementById("Song1");
+      Song1.loop = true;
+      Song1.pause();
+      var Song4 = document.getElementById("Song4");
+      Song4.loop = true;
+      Song4.pause();
+      var Song3 = document.getElementById("Song3");
+      Song3.loop = true;
+      Song3.pause();
+      var Song2 = document.getElementById("Song2");
+      Song2.loop = true;
+      Song2.pause();
+      var Final = document.getElementById("Final");
+      Final.loop = true;
+      Final.pause();
+    </script>
   </body>
 </html>

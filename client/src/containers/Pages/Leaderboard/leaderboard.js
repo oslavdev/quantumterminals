@@ -15,6 +15,31 @@ class Menu extends Component {
     this.props.dispatch(getUsers())
   }
 
+  componentDidMount(){
+    var final = document.getElementById("Final");
+    final.loop = true;
+    final.pause();
+    var song1 = document.getElementById("Song1");
+    song1.loop = true;
+    song1.pause();
+    var song2 = document.getElementById("Song2");
+    song2.loop = true;
+    song2.pause();
+    var song3 = document.getElementById("Song3");
+    song3.loop = true;
+    song3.pause();
+    var song4 = document.getElementById("Song4");
+    song4.loop = true;
+    song4.pause();
+    var standby = document.getElementById("Standby");
+    standby.loop = true;
+    standby.pause();
+
+    var intro = document.getElementById("intro");
+    if (intro.paused){
+      intro.play();
+    }
+  }
 
 
   render(){

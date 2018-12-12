@@ -1,12 +1,11 @@
 .memo__container{
-  height: auto;
-  width: 960px;
+  max-height: 400px!important;
+  width: 860px!important;
   display: flex;
   justify-self:center;
   align-self: center;
   padding: 5px;
   position: relative;
-  overflow-x: hidden;
   flex-direction: column;
 
   &-header{
