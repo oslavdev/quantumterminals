@@ -23,6 +23,12 @@ const Credits = () =>{
   var standby = document.getElementById("Standby");
   standby.loop = true;
   standby.pause();
+  var glitch = document.getElementById("glitch");
+  glitch.loop = true;
+  glitch.pause();
+  var noise = document.getElementById("noise");
+  noise.loop = true;
+  noise.pause();
 
   var intro = document.getElementById("intro");
   if (intro.paused){
