@@ -170,7 +170,7 @@ class Game extends PureComponent {
                         <div className="super-wrapper">
                         <h2 id="from"><i className="far fa-envelope"></i><span>from:</span></h2>
                         <h1 id="sender">Lumituisku</h1>
-                        <p id="message" >Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through all the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
+                        <p id="message" >Hello {this.props.user.user.name}, my name is Lumitiusku. I will guide your through the processes of unlocking quantum memory. Do you want me to explain the rules? </p>
                         <div id="message-btns" className="m-btn-wrapper">
                           <div onMouseEnter={()=>this.onHover()}  onClick={()=>{this.setState({messa:false, tutorial:true}); this.onClick(); }} className="buttonGot-2" id="button"  >
                             <svg>
@@ -962,8 +962,6 @@ class Game extends PureComponent {
                                     var fail = document.getElementById("ButtonFail");
                                     fail.loop = false;
                                     fail.play();
-                                    console.log("mistakes: " + mistake)
-                                    console.log("sum: " + sum)
                                     clicked = false;
                                     this.setState({
                                       userdata:{
@@ -1607,9 +1605,7 @@ class Game extends PureComponent {
           let start = this.state.startTutorial;
           let length = 3;
           let nextSlideShow, prevSlideShow;
-          console.log("Start: " + start)
           let nextSlide = parseInt(parseInt(start)+parseInt(n));
-          console.log("Next: " + nextSlide)
 
           if (nextSlide <= length && nextSlide > 0){
               nextSlideShow = document.getElementById(nextSlide+ "slide");
@@ -1618,7 +1614,6 @@ class Game extends PureComponent {
               prevSlideShow.classList.remove("Tutorial__slide-active")
               this.setState({startTutorial:nextSlide})
           }
-          console.log(this.state.startTutorial)
       }
 
 
@@ -1751,8 +1746,6 @@ class Game extends PureComponent {
     let id = this.state.id;
     let state = this.state;
 
-    console.log(user)
-    console.log(state)
 
     return(
 
@@ -1876,10 +1869,10 @@ class Game extends PureComponent {
 
                   <img className="tutorialIMG" src="images/tutorial.gif" alt="tutorial"></img>
                   <div id="1slide" className="Tutorial__slide Tutorial__slide-active">
-                    <p>Your job is simple. We render the pattern which unlocks the memory blocks. Memorize exact sequence of each appeared point. When the display disappears, you need to repeat.</p>
+                    <p>Your job is simple. We render the pattern which unlocks the memory blocks. Memorize exact sequence of each appeared anchor point. When the display turns off, you need to repeat the path.</p>
                   </div>
                   <div id="2slide" className="Tutorial__slide ">
-                    <p>To do that you need to grab the first point and without releasing drag to the next block. When you finish the pattren, release point to start verification.</p>
+                    <p>To do that you need to grab the first point and without releasing it drag to the next block. When you finish the pattren, release point to start verification.</p>
                   </div>
                   <div id="3slide" className="Tutorial__slide ">
                     <p>Each level consist of several streaks. You need to unlock a few chains without interaption to proceed to the next level.</p>

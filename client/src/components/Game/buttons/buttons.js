@@ -59,7 +59,7 @@ class Buttons extends Component {
               let id = parseInt(i) + parseInt(1);
               button.id = "button" + id;
 
-  
+
 
               var startposition = document.getElementById("button" + i);
             }
@@ -74,7 +74,6 @@ class Buttons extends Component {
             if(!window.navigator.msPointerEnabled) {
 
               $(".button").on("mousedown", function (event){
-                console.log("click")
                 if(!this.state.clicked){
                   this.setState({clicked:true})
                   var offset1 = $("#" + event.target.id).position();
@@ -191,7 +190,6 @@ class Buttons extends Component {
                           // V.  MOUSE UP    //
 
                 $("#buttonground").on("mouseup", function (event){
-                      console.log("unclick")
                   if(this.state.clicked === true) {
 
                     if (event && event.preventDefault){
@@ -215,13 +213,9 @@ class Buttons extends Component {
                                 this.setState({
                                   currentStreak: sum
                                 })
-                                console.log("Current SreaK: " + curr)
-                                console.log("StreaK: " + st)
-
                               } else {
                                 let score = this.state.score;
                                 this.props.Win(score);
-                                console.log("Win")
                               }
 
                             }

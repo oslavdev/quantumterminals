@@ -12,15 +12,15 @@ const Support = () =>{
       <Decor/>
       <Burger/>
 
-      <div class="support-container">
-        <div class="support-text">
+      <div className="support-container">
+        <div className="support-text">
           <p>IF YOU LIKED THE GAME, PLEASE SUPPORT ME ON KO-FI.
   IT ISE VERY IMPORTANT FOR ME TO BE ABLE CONTINUE CREATING NEW GAMES AND IMPROVING THIS ONE. EVEN CREATING SUCH A SIMPLE PROJECT REQUIRES A LOT OF TIME AND KNOWLEDGE.</p>
           <p>GETTING SUPPORT HELPS ME TO BE STAY MOTIVATED AND LETTING ME KNOW THAT SOMEONE APPRECIATE WHAT I DO.</p>
           <p>IT IS NOT A BIG DEAL, JUST A SMALL KO-FI!</p>
         </div>
-        <div class="btn btn--support">SUPPORT</div>
-        <div class="upcoming">
+        <div className="btn btn--support">SUPPORT</div>
+        <div className="upcoming">
           <h1>Projects I am currently working on:</h1>
           <p>API LASTFM GAME</p>
           <p>MEMO 3D FOR ANDROID</p>

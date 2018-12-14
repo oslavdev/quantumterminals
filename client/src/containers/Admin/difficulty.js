@@ -211,7 +211,7 @@ constructor(props){
                 <div className="dif-btn-wrap">
                   <ul className="list">
                     <li id="btn1">
-                      <div className="list__item">
+                      <div className="list__item list__item--diff">
                         <a
                         onMouseEnter={this.easyIn.bind(this)}
                         onClick={this.setStateToEasy} className="link">EASY</a>
@@ -220,7 +220,7 @@ constructor(props){
                       </div>
                     </li>
                     <li id="btn1">
-                      <div className="list__item">
+                      <div className="list__item list__item--diff">
                         <a
                         onMouseEnter={this.hardIn.bind(this)}
                         onClick={this.setStateToHard} className="link">HARD</a>
@@ -229,7 +229,7 @@ constructor(props){
                       </div>
                     </li>
                     <li id="btn1">
-                      <div className="list__item">
+                      <div className="list__item list__item--diff">
                         <a
                         onMouseEnter={this.extremeIn.bind(this)}
                         onClick={this.setStateToExtreme} className="link" >EXTREME</a>
@@ -238,7 +238,7 @@ constructor(props){
                       </div>
                     </li>
                     <li id="btn1">
-                      <div className="list__item">
+                      <div className="list__item list__item--diff">
                         <a
                         onMouseEnter={this.impossibleIn.bind(this)}
                         onClick={this.setStateToImpossible} className="link" >IMPOSSIBLE</a>
@@ -247,7 +247,7 @@ constructor(props){
                       </div>
                     </li>
                     <li id="btn1">
-                      <div className="list__item">
+                      <div className="list__item list__item--diff">
                         <a
                         onMouseEnter={this.AsianIn.bind(this)}
                         onClick={this.setStateToAsian} className="link">ASIAN</a>

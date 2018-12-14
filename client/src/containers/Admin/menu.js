@@ -243,7 +243,7 @@ class Menu extends PureComponent {
                         this.state.show ?
                           <div className="support__container">
                             <div className="support__container-content">
-                              <p>It's just the beginning. This is a beta version of the game. There will be much more. </p>
+                              <p>It's just the beginning. This is a beta version of the game. Want more? </p>
                               <div onMouseEnter={()=>this.onHover()} onClick={()=>this.onClick()} className="buttonGot__wrapper">
                                 <Link className="buttonGot " id="button" to="/about" >
                                   <svg>
