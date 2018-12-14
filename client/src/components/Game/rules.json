@@ -18,7 +18,7 @@
         "Level":"1",
         "Streak":"4",
         "Difficulty":"Hard",
-        "Time":"80",
+        "Time":"90",
         "Tiles":"4"
       },
       {
@@ -48,7 +48,7 @@
         "Level":"2",
         "Streak":"4",
         "Difficulty":"Hard",
-        "Time":"120",
+        "Time":"150",
         "Tiles":"5"
       },
       {
@@ -70,21 +70,21 @@
         "Level":"3",
         "Streak":"4",
         "Difficulty":"Easy",
-        "Time":"75",
+        "Time":"95",
         "Tiles":"5"
       },
       {
         "Level":"3",
         "Streak":"5",
         "Difficulty":"Hard",
-        "Time":"120",
+        "Time":"180",
         "Tiles":"6"
       },
       {
         "Level":"3",
         "Streak":"8",
         "Difficulty":"Extreme",
-        "Time":"240",
+        "Time":"280",
         "Tiles":"8"
       },
       {
@@ -99,7 +99,7 @@
         "Level":"4",
         "Streak":"4",
         "Difficulty":"Easy",
-        "Time":"90",
+        "Time":"120",
         "Tiles":"6"
       },
       {
@@ -128,21 +128,21 @@
         "Level":"5",
         "Streak":"5",
         "Difficulty":"Easy",
-        "Time":"100",
+        "Time":"150",
         "Tiles":"6"
       },
       {
         "Level":"5",
         "Streak":"6",
         "Difficulty":"Hard",
-        "Time":"240",
+        "Time":"280",
         "Tiles":"7"
       },
       {
         "Level":"5",
         "Streak":"9",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"350",
         "Tiles":"9"
       },
       {
@@ -156,21 +156,21 @@
         "Level":"6",
         "Streak":"6",
         "Difficulty":"Easy",
-        "Time":"120",
+        "Time":"180",
         "Tiles":"7"
       },
       {
         "Level":"6",
         "Streak":"7",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"360",
         "Tiles":"7"
       },
       {
         "Level":"6",
         "Streak":"10",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"400",
         "Tiles":"9"
       },
       {
@@ -184,21 +184,21 @@
         "Level":"7",
         "Streak":"6",
         "Difficulty":"Easy",
-        "Time":"150",
+        "Time":"200",
         "Tiles":"7"
       },
       {
         "Level":"7",
         "Streak":"7",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"400",
         "Tiles":"8"
       },
       {
         "Level":"7",
         "Streak":"10",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"450",
         "Tiles":"10"
       },
       {
@@ -212,21 +212,21 @@
         "Level":"8",
         "Streak":"6",
         "Difficulty":"Easy",
-        "Time":"150",
+        "Time":"210",
         "Tiles":"8"
       },
       {
         "Level":"8",
         "Streak":"7",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"450",
         "Tiles":"9"
       },
       {
         "Level":"8",
         "Streak":"11",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"500",
         "Tiles":"10"
       },
       {
@@ -240,21 +240,21 @@
         "Level":"9",
         "Streak":"6",
         "Difficulty":"Easy",
-        "Time":"200",
+        "Time":"250",
         "Tiles":"8"
       },
       {
         "Level":"9",
         "Streak":"8",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"480",
         "Tiles":"9"
       },
       {
         "Level":"9",
         "Streak":"11",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"500",
         "Tiles":"11"
       },
       {
@@ -268,21 +268,21 @@
         "Level":"10",
         "Streak":"7",
         "Difficulty":"Easy",
-        "Time":"250",
+        "Time":"300",
         "Tiles":"9"
       },
       {
         "Level":"10",
         "Streak":"8",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"500",
         "Tiles":"10"
       },
       {
         "Level":"10",
         "Streak":"13",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"550",
         "Tiles":"12"
       },
       {
@@ -296,21 +296,21 @@
         "Level":"11",
         "Streak":"7",
         "Difficulty":"Easy",
-        "Time":"250",
+        "Time":"350",
         "Tiles":"10"
       },
       {
         "Level":"11",
         "Streak":"9",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"550",
         "Tiles":"12"
       },
       {
         "Level":"11",
         "Streak":"14",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"600",
         "Tiles":"15"
       },
       {
@@ -324,21 +324,21 @@
         "Level":"12",
         "Streak":"8",
         "Difficulty":"Easy",
-        "Time":"250",
+        "Time":"400",
         "Tiles":"11"
       },
       {
         "Level":"12",
         "Streak":"10",
         "Difficulty":"Hard",
-        "Time":"320",
+        "Time":"600",
         "Tiles":"15"
       },
       {
         "Level":"12",
         "Streak":"15",
         "Difficulty":"Extreme",
-        "Time":"320",
+        "Time":"700",
         "Tiles":"17"
       },
       {

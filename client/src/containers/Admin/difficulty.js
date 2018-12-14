@@ -96,7 +96,7 @@ constructor(props){
 
   easyIn(){
     $("#im").remove();
-    this.setState({description:"Good point to start. Not very challenging, it is quiet possible to beat this without getting signs of nervous breakdown. You will improve your memory and pass to another difficulty.", asian:false})
+    this.setState({description:"Good point to start. Not very challenging, it is quite possible to beat this without getting signs of nervous breakdown. You will improve your memory and pass to another difficulty.", asian:false})
   }
   hardIn(){
     $("#im").remove();
@@ -104,7 +104,7 @@ constructor(props){
   }
   extremeIn(){
     $("#im").remove();
-    this.setState({description:"Here is the real challenge starts. When you beat the game on this difficulty you will obtain new neuro-networks in your brain and reduce risk of Alzheimer's desease on at least 30%. ", asian:false})
+    this.setState({description:"Here is where the real challenge starts. When you beat the game on this difficulty you will obtain new neuro-networks in your brain and reduce risk of Alzheimer's desease for at least 30%.", asian:false})
   }
   impossibleIn(){
     $("#im").remove();

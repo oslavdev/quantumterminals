@@ -510,6 +510,7 @@ class Game extends PureComponent {
 
         fail(){
           document.querySelector(".blocker").classList.add('blocker-active');
+          document.querySelector(".timer").classList.remove("warning");
           let level = this.state.level;
 
           let track = this.state.src;

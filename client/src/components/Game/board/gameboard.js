@@ -45,26 +45,32 @@ class Gameboard extends Component {
           let decorationItem2 = document.createElement("div");
           let decorationItem3 = document.createElement("div");
           let decorationItem4 = document.createElement("div");
+          let decorationItem5 = document.createElement("div");
+
           let decorationItemPlus1 = document.createTextNode("+");
           let decorationItemPlus2 = document.createTextNode("+");
           let decorationItemPlus3 = document.createTextNode("+");
           let decorationItemPlus4 = document.createTextNode("+");
+          let decorationItemPlus5 = document.createTextNode("+");
 
           decoration.classList.add("decoration");
           decorationItem1.classList.add("decoration__item-1", "decoration__item");
           decorationItem2.classList.add("decoration__item-2", "decoration__item");
           decorationItem3.classList.add("decoration__item-3", "decoration__item");
           decorationItem4.classList.add("decoration__item-4", "decoration__item");
+          decorationItem5.classList.add("decoration__item-5", "decoration__item");
 
           decorationItem1.appendChild(decorationItemPlus1);
           decorationItem2.appendChild(decorationItemPlus2);
           decorationItem3.appendChild(decorationItemPlus3);
           decorationItem4.appendChild(decorationItemPlus4);
+          decorationItem5.appendChild(decorationItemPlus5);
 
           decoration.appendChild(decorationItem1);
           decoration.appendChild(decorationItem2);
           decoration.appendChild(decorationItem3);
           decoration.appendChild(decorationItem4);
+          decoration.appendChild(decorationItem5);
 
           let decoration2 = document.createElement("div");
           let bdecorationItem1 = document.createElement("div");
