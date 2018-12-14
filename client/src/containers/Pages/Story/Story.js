@@ -70,7 +70,7 @@ class Game extends PureComponent {
         user.user.firstEver ?
           <div id="firstStart" className="firstStart">
             <div id="firstStart" className="firstStart_wrapper">
-                <p>Thirty years ago after Collapse people lost their memories were stuck in the world without knowledge of who they are and where did they come from.  On earth reigned endless winter. Citadel is the last hope for humanity. They send agents all over the world to collect los memory in quantum clouds shattered all over the world and bring back to Terminals to decipher and unlock remembrances and know the truth about their existence.</p>
+                <p>Thirty years ago after the Collapse people lost their memories. They were stuck in the world without knowledge of who they are and where did they come from. Enldess winter reigned the earth. The Citadel is the last hope for humanity. They send agents all over the world to collect lost memory from quantum clouds shattered all over the world. To bring them back to Terminals to decipher and unlock remembrances.</p>
                 <ul id="continue" className="list">
                   <li id="btn1">
                     <div className="list__item">
