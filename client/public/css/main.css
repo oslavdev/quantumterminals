@@ -1274,8 +1274,7 @@ ul {
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-delay: .5s;
-  margin-bottom: 20px;
-  transform: translteY(20px); }
+  margin-bottom: 20px; }
 
 @keyframes showupH {
   from {
@@ -1545,7 +1544,6 @@ ul {
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   padding: 20px;
-  transform: translateY(20px);
   text-transform: uppercase;
   line-height: 30px; }
 
@@ -1557,7 +1555,6 @@ ul {
   flex-direction: column;
   margin-bottom: 15px; }
   .modal-wrapper-text {
-    margin-bottom: 20px;
     animation: modalASK;
     animation-duration: .5s;
     animation-delay: 1s;
@@ -2999,7 +2996,8 @@ header {
 
 .about__container {
   max-width: 500px !important;
-  max-height: 350px !important; }
+  max-height: 350px !important;
+  max-width: 90% !important; }
   @media only screen and (max-width: 900px) {
     .about__container {
       width: 90vw !important; } }
@@ -3008,6 +3006,10 @@ header {
     color: #131416;
     font-size: 1.7rem;
     margin-bottom: 5px; }
+  .about__container a {
+    color: #131416;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif; }
   .about__container ul {
     margin-top: 15px;
     margin-bottom: 15px; }
@@ -4259,6 +4261,9 @@ input, button, submit {
   padding: 5px;
   position: relative;
   flex-direction: column; }
+  @media only screen and (max-width: 900px) {
+    .memo__container {
+      max-width: 90vw !important; } }
   .memo__container-header {
     position: relative;
     font-family: 'Montserrat', sans-serif;

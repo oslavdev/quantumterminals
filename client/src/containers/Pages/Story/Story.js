@@ -70,7 +70,9 @@ class Game extends PureComponent {
         user.user.firstEver ?
           <div id="firstStart" className="firstStart">
             <div id="firstStart" className="firstStart_wrapper">
-                <p>Thirty years ago after the Collapse people lost their memories. They were stuck in the world without knowledge of who they are and where did they come from. Enldess winter reigned the earth. The Citadel is the last hope for humanity. They send agents all over the world to collect lost memory from quantum clouds shattered all over the world. To bring them back to Terminals to decipher and unlock remembrances.</p>
+                <p>Back in old days people used to speak using their minds. They connected their neuron-networks to global frameworks to have access to q-mind spaces. The knowledge gained by mankind for thousands of years of existence was stored in quantum streams. Anyone had access to this knowledge. People did not work back then; instead, part of the computational power of their brains was allocated to the needs of humankind. This system was called q-mining, and the points they earned - Involvement, served them with money and provided all the basic needs. In that world, the most important thing was to keep your mind clean in order to avoid chaos. Each individual was especially responsible for the condition of another person, since everyone is the one. The world existed in this form until Pyrrhon had come. Then it all happened. The Collapse.
+                <br/><br/>Citadel does its best to restore lost memories and bring the knowledge back, sending agents all over the world to collect quantum streams converged in little clouds. Your job is deciphering these memories. It is a big responsibility. All the humankind is watching up on us and waits with hope for better future. Welcome to Quantum Terminals citizen. And remember: keep your mind clean!
+                </p>
                 <ul id="continue" className="list">
                   <li id="btn1">
                     <div className="list__item">

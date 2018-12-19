@@ -63,16 +63,17 @@ class About extends Component {
           <Decor/>
           <Dots/>
           <div data-simplebar className="about__container">
-            <p>The game currently is under construction. In beta version of 'Memo The Quantum Terminals' you'll find the first puzzle that requires good short term memory abilities; and the first sneak peeks at the story. Full version will include: </p>
+            <p>The game currently is under construction. In beta version of 'Memo: The Quantum Terminals' you'll find the first puzzle that requires good short term memory abilities, and the first sneak peek at the story. Full version of the game will include: </p>
             <ul>
               <li>At least five more puzzles</li>
               <li>Multiplayer</li>
               <li>Extended story</li>
               <li>New mechanics: train and send agents around the world to collect more quantum memories shattered across the globe</li>
               <li>Illustrations</li>
+              <li>Memo Encyclopaedia</li>
               <li>And more</li>
             </ul>
-            <p>If you want to help this happen you can support me on Patreon, buy me a cup of Coffee or simply share this game with your friends. And remember. Keep your mind clean citizen!</p>
+            <p>If you want to help this happen you can support me on <a href="https://www.patreon.com/stampedeproduction" target="_blank">Patreon</a>, buy me a cup of <a href="https://ko-fi.com/rijelek" target="_blank">Coffee</a> or simply share this game with your friends. Any help would be highly appreciated. And remember: 'Keep your mind clean citizen!''</p>
           </div>
           <ul className="list">
             <li>

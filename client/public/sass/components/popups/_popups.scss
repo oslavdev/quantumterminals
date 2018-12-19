@@ -29,7 +29,6 @@
   animation-iteration-count: 1;
   animation-delay: .5s;
   margin-bottom: 20px;
-  transform: translteY(20px);
 }
 
 @keyframes showupH {
@@ -397,7 +396,6 @@ z-index: 9999;
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   padding: 20px;
-  transform: translateY(20px);
   text-transform: uppercase;
   line-height: 30px;
 
@@ -415,7 +413,6 @@ z-index: 9999;
   margin-bottom: 15px;
 
   &-text{
-    margin-bottom: 20px;
     animation: modalASK;
     animation-duration: .5s;
     animation-delay: 1s;

@@ -1503,7 +1503,7 @@ class Game extends PureComponent {
                    } else {
                      this.setState({messageCondition:false})
                    }
-                 },5000)
+                 },7000)
                  this.setState({firstMessageCheck:false})
                }
                this.setState({firstMessageCheck:false})
@@ -1870,13 +1870,13 @@ class Game extends PureComponent {
 
                   <img className="tutorialIMG" src="images/tutorial.gif" alt="tutorial"></img>
                   <div id="1slide" className="Tutorial__slide Tutorial__slide-active">
-                    <p>Your job is simple. We render the pattern which unlocks the memory blocks. Memorize exact sequence of each appeared anchor point. When the display turns off, you need to repeat the path.</p>
+                    <p>The rules are very simple. You receive blocks of memories and pattern to unlock them. Remember the pattern precisely and repeat.</p>
                   </div>
                   <div id="2slide" className="Tutorial__slide ">
-                    <p>To do that you need to grab the first point and without releasing it drag to the next block. When you finish the pattren, release point to start verification.</p>
+                    <p>Click on the first point of Chain and drag to the next point. When you reach the final point – release the button. Generator will compare these patterns.</p>
                   </div>
                   <div id="3slide" className="Tutorial__slide ">
-                    <p>Each level consist of several streaks. You need to unlock a few chains without interaption to proceed to the next level.</p>
+                    <p>If pattern is right you will proceed to the next block of memories. If not, you start again. </p>
                   </div>
                   <div className="slider-control">
                     <button className="btnslider" onClick={()=>this.tutorialSlider(-1)}><i class="fas fa-chevron-left"></i> Previous</button>

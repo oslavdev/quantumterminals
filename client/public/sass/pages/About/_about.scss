@@ -1,6 +1,7 @@
 .about__container{
   max-width: 500px!important;
   max-height: 350px !important;
+  max-width: 90%!important;
 
   @media only screen and (max-width: 900px) {
     width: 90vw!important;
@@ -11,6 +12,14 @@
     color: $color-intro-black;
     font-size: 1.7rem;
     margin-bottom: 5px;
+
+
+  }
+
+  a{
+    color: $color-intro-black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
   }
 
   ul{

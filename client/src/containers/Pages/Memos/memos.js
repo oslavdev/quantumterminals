@@ -78,22 +78,55 @@ class Memos extends PureComponent {
            return(
              <div className="story-content">
 
-               <p>Sometimes I find myself thinking of music.
-                 And sometimes I even have a feeling that I can understand, conceive the meaning of this word.
-                 But that sensation seems distant, as if reaching me through filter barrier that cuts off all extra frequencies, leaving only a faint echo of perception.  I never heard music, of course.  But the feeling is so real. Engine is rattling under the floor. Is it music? Train jerked and slowly begun to swing from side to side. We moved, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of pure untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm.
-                 Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
+             <p>Sometimes I find myself thinking of music. And sometimes I even have a feeling that I can understand, conceive the meaning of this word. But that sensation seems distant, as if it reaches me through a filter barrier that cuts off all the extra frequencies, leaving only a faint echo of perception. I've never heard music, of course. But the feeling is so real. Engine is rattling under the floor. Is it music? The train has jerked and slowly moved swinging from side to side. It is started, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm. Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
+             </p>
+             <br/>
+             <p>
+              "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. Then: "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above of what I can afford now. Soon it won't be a big deal anyway.
+             </p>
+             <br/>
+             <p>
+            I reached a suitcase from under my seat. A compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame me. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
+             </p>
+             <br/>
+             <p>
+            White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I said this. "Why? No, I am sure you are not." They said.  Sweet of them.
+             </p>
+             <br/>
+             <p>"How can you tell?"</p>
+              <br/>
+               <p>  "I can, I have a third eye for bad persons.", then they added. "I work in the south-direction train."</p>
+            <br/>
+               <p>  "Alright, good point," I nodded gratefully accepting the cup. That smell. Never drunk a single cup of this drink in my life. The thought cheered me up a little. The curls framed smile still hung above me.</p>
+               <br/>
+               <p>  "Oh, yeah, here," my least favourite moment. I offered my bank card and got back to my papers. Damn, that smell.</p>
+            <br/>
+               <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
+                <br/>
+
+                  <br/>
+                    <h2>Piece is missing...</h2>
+             </div>
+           );
+            break;
+          }
+          case "4": {
+             return(
+               <div className="story-content">
+
+               <p>Sometimes I find myself thinking of music. And sometimes I even have a feeling that I can understand, conceive the meaning of this word. But that sensation seems distant, as if it reaches me through a filter barrier that cuts off all the extra frequencies, leaving only a faint echo of perception. I've never heard music, of course. But the feeling is so real. Engine is rattling under the floor. Is it music? The train has jerked and slowly moved swinging from side to side. It is started, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm. Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
                </p>
                <br/>
                <p>
-                "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above what I can afford for now. Soon it won't be a big deal anyway.
+                "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. Then: "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above of what I can afford now. Soon it won't be a big deal anyway.
                </p>
                <br/>
                <p>
-                I reached a suitcase from under the seat. My compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
+              I reached a suitcase from under my seat. A compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame me. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
                </p>
                <br/>
                <p>
-                White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I did this. "Why? No, I am sure you are not, miss." They said.
+              White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I said this. "Why? No, I am sure you are not." They said.  Sweet of them.
                </p>
                <br/>
                <p>"How can you tell?"</p>
@@ -106,31 +139,28 @@ class Memos extends PureComponent {
               <br/>
                  <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                   <br/>
-                    <h2>Piece is missing...</h2>
-             </div>
-           );
-            break;
-          }
-          case "4": {
-             return(
-               <div className="story-content">
+                      <h2>Piece is missing...</h2>
+               </div>
+             );
+              break;
+            }
+            case "5": {
+               return(
+                 <div className="story-content">
 
-                 <p>Sometimes I find myself thinking of music.
-                   And sometimes I even have a feeling that I can understand, conceive the meaning of this word.
-                   But that sensation seems distant, as if reaching me through filter barrier that cuts off all extra frequencies, leaving only a faint echo of perception.  I never heard music, of course.  But the feeling is so real. Engine is rattling under the floor. Is it music? Train jerked and slowly begun to swing from side to side. We moved, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of pure untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm.
-                   Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
+                 <p>Sometimes I find myself thinking of music. And sometimes I even have a feeling that I can understand, conceive the meaning of this word. But that sensation seems distant, as if it reaches me through a filter barrier that cuts off all the extra frequencies, leaving only a faint echo of perception. I've never heard music, of course. But the feeling is so real. Engine is rattling under the floor. Is it music? The train has jerked and slowly moved swinging from side to side. It is started, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm. Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
                  </p>
                  <br/>
                  <p>
-                  "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above what I can afford for now. Soon it won't be a big deal anyway.
+                  "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. Then: "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above of what I can afford now. Soon it won't be a big deal anyway.
                  </p>
                  <br/>
                  <p>
-                  I reached a suitcase from under the seat. My compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
+                I reached a suitcase from under my seat. A compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame me. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
                  </p>
                  <br/>
                  <p>
-                  White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I did this. "Why? No, I am sure you are not, miss." They said.
+                White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I said this. "Why? No, I am sure you are not." They said.  Sweet of them.
                  </p>
                  <br/>
                  <p>"How can you tell?"</p>
@@ -143,31 +173,29 @@ class Memos extends PureComponent {
                 <br/>
                    <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                     <br/>
-                      <h2>Piece is missing...</h2>
-               </div>
-             );
-              break;
-            }
-            case "5": {
-               return(
-                 <div className="story-content">
+                      <br/>
+                        <h2>Piece is missing...</h2>
+                 </div>
+               );
+                break;
+              }
+              case "6": {
+                 return(
+                   <div className="story-content">
 
-                   <p>Sometimes I find myself thinking of music.
-                     And sometimes I even have a feeling that I can understand, conceive the meaning of this word.
-                     But that sensation seems distant, as if reaching me through filter barrier that cuts off all extra frequencies, leaving only a faint echo of perception.  I never heard music, of course.  But the feeling is so real. Engine is rattling under the floor. Is it music? Train jerked and slowly begun to swing from side to side. We moved, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of pure untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm.
-                     Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
+                   <p>Sometimes I find myself thinking of music. And sometimes I even have a feeling that I can understand, conceive the meaning of this word. But that sensation seems distant, as if it reaches me through a filter barrier that cuts off all the extra frequencies, leaving only a faint echo of perception. I've never heard music, of course. But the feeling is so real. Engine is rattling under the floor. Is it music? The train has jerked and slowly moved swinging from side to side. It is started, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm. Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
                    </p>
                    <br/>
                    <p>
-                    "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above what I can afford for now. Soon it won't be a big deal anyway.
+                    "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. Then: "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above of what I can afford now. Soon it won't be a big deal anyway.
                    </p>
                    <br/>
                    <p>
-                    I reached a suitcase from under the seat. My compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
+                  I reached a suitcase from under my seat. A compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame me. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
                    </p>
                    <br/>
                    <p>
-                    White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I did this. "Why? No, I am sure you are not, miss." They said.
+                  White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I said this. "Why? No, I am sure you are not." They said.  Sweet of them.
                    </p>
                    <br/>
                    <p>"How can you tell?"</p>
@@ -180,49 +208,13 @@ class Memos extends PureComponent {
                   <br/>
                      <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                       <br/>
-                        <h2>Piece is missing...</h2>
-                 </div>
-               );
-                break;
-              }
-              case "6": {
-                 return(
-                   <div className="story-content">
-
-                     <p>Sometimes I find myself thinking of music.
-                       And sometimes I even have a feeling that I can understand, conceive the meaning of this word.
-                       But that sensation seems distant, as if reaching me through filter barrier that cuts off all extra frequencies, leaving only a faint echo of perception.  I never heard music, of course.  But the feeling is so real. Engine is rattling under the floor. Is it music? Train jerked and slowly begun to swing from side to side. We moved, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of pure untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm.
-                       Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
-                     </p>
-                     <br/>
-                     <p>
-                      "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above what I can afford for now. Soon it won't be a big deal anyway.
-                     </p>
-                     <br/>
-                     <p>
-                      I reached a suitcase from under the seat. My compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
-                     </p>
-                     <br/>
-                     <p>
-                      White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I did this. "Why? No, I am sure you are not, miss." They said.
-                     </p>
-                     <br/>
-                     <p>"How can you tell?"</p>
-                      <br/>
-                       <p>  "I can, I have a third eye for bad persons.", then they added. "I work in the south-direction train."</p>
-                    <br/>
-                       <p>  "Alright, good point," I nodded gratefully accepting the cup. That smell. Never drunk a single cup of this drink in my life. The thought cheered me up a little. The curls framed smile still hung above me.</p>
-                       <br/>
-                       <p>  "Oh, yeah, here," my least favourite moment. I offered my bank card and got back to my papers. Damn, that smell.</p>
-                    <br/>
-                       <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                         <br/>
                         <p>
-                        I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They all are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
+                      I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
                         </p>
                         <br/>
                         <p>
-                        I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down all useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more a less in their mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that's why I chose this place. Interesting, is it far from the station. I tried to make sense out of this map. I had a feeling likes this was not very accurate map.
+                      I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down the useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more or less with a clear mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that was the reason why I chose this place. Interesting, is it far from the station? I tried to make sense out of this map. I had a feeling that this was not a very accurate one.
                         </p>
                         <br/>
                         <p>
@@ -275,11 +267,11 @@ class Memos extends PureComponent {
                          <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                           <br/>
                           <p>
-                          I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They all are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
+                        I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
                           </p>
                           <br/>
                           <p>
-                          I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down all useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more a less in their mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that's why I chose this place. Interesting, is it far from the station. I tried to make sense out of this map. I had a feeling likes this was not very accurate map.
+                        I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down the useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more or less with a clear mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that was the reason why I chose this place. Interesting, is it far from the station? I tried to make sense out of this map. I had a feeling that this was not a very accurate one.
                           </p>
                           <br/>
                           <p>
@@ -332,11 +324,11 @@ class Memos extends PureComponent {
                            <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                             <br/>
                             <p>
-                            I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They all are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
+                          I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
                             </p>
                             <br/>
                             <p>
-                            I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down all useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more a less in their mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that's why I chose this place. Interesting, is it far from the station. I tried to make sense out of this map. I had a feeling likes this was not very accurate map.
+                          I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down the useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more or less with a clear mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that was the reason why I chose this place. Interesting, is it far from the station? I tried to make sense out of this map. I had a feeling that this was not a very accurate one.
                             </p>
                             <br/>
                             <p>
@@ -389,11 +381,11 @@ class Memos extends PureComponent {
                              <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                               <br/>
                               <p>
-                              I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They all are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
+                            I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
                               </p>
                               <br/>
                               <p>
-                              I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down all useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more a less in their mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that's why I chose this place. Interesting, is it far from the station. I tried to make sense out of this map. I had a feeling likes this was not very accurate map.
+                            I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down the useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more or less with a clear mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that was the reason why I chose this place. Interesting, is it far from the station? I tried to make sense out of this map. I had a feeling that this was not a very accurate one.
                               </p>
                               <br/>
                               <p>
@@ -591,22 +583,19 @@ class Memos extends PureComponent {
                              return(
                                <div className="story-content">
 
-                                 <p>Sometimes I find myself thinking of music.
-                                   And sometimes I even have a feeling that I can understand, conceive the meaning of this word.
-                                   But that sensation seems distant, as if reaching me through filter barrier that cuts off all extra frequencies, leaving only a faint echo of perception.  I never heard music, of course.  But the feeling is so real. Engine is rattling under the floor. Is it music? Train jerked and slowly begun to swing from side to side. We moved, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of pure untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm.
-                                   Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
+                                 <p>Sometimes I find myself thinking of music. And sometimes I even have a feeling that I can understand, conceive the meaning of this word. But that sensation seems distant, as if it reaches me through a filter barrier that cuts off all the extra frequencies, leaving only a faint echo of perception. I've never heard music, of course. But the feeling is so real. Engine is rattling under the floor. Is it music? The train has jerked and slowly moved swinging from side to side. It is started, alright, I said to myself with relief. I opened my eyes and looked at the window. Endless fields of untouched snow. No buildings, no people, a few trees and small wooden construction of unknown origin. White is the colour of chasm. Everyone depict emptiness with back colour. Why is that? The emptiness is definitely white.
                                  </p>
                                  <br/>
                                  <p>
-                                  "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above what I can afford for now. Soon it won't be a big deal anyway.
+                                  "Tea? Coffee?" It was a young smiling steward at the door. White curls falling on the face. They don't bother fix them. I shake my head. Then: "No, wait!" I shout. White curls appeared again. "Coffee please." They smiled. "Natural black, no flavours," why not to fix yourself a little feast, even if it is far above of what I can afford now. Soon it won't be a big deal anyway.
                                  </p>
                                  <br/>
                                  <p>
-                                  I reached a suitcase from under the seat. My compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
+                                I reached a suitcase from under my seat. A compact yellow road fellow. Is it bad to personalize inanimate objects? Who can blame me. I fished out a thick folder and flopped it on the table. Talking of inanimate object, I need to work. Bumps rose up my spine, I froze. No, it is bad. Black humour, I am not supposed to say that. It is bad.
                                  </p>
                                  <br/>
                                  <p>
-                                  White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I did this. "Why? No, I am sure you are not, miss." They said.
+                                White curls silently materialized in the coupe with a cup of good smelling coffee. I didn't even notice when they came. "I am a bad person," I said. Don't know why I said this. "Why? No, I am sure you are not." They said.  Sweet of them.
                                  </p>
                                  <br/>
                                  <p>"How can you tell?"</p>
@@ -620,11 +609,11 @@ class Memos extends PureComponent {
                                    <p>  "Enjoy your coffee," the smile finally disappeared with the rest of the person leaving me alone. I opened my files.</p>
                                     <br/>
                                     <p>
-                                    I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They all are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
+                                  I collected only three memories this month. That's not much, if I'll keep this going, I'll stay without a job. Partially that's why I agreed on this doubtful adventure. Southern parts were closed since the Collapse. It is still not safe there. I capitalized on my acquaintances in Citadel. They signed me a pass. And now I was going straight to the heart of the south. There are not many passengers on board. I have not decided yet if it is good or bad. Anyway, the goal is worth it. Huge accumulations of untouched memories. Every month if not a week a new spot appears here and there and no one dare to come too close. They are afraid. I don't blame them. I am too, I am too afraid. But I'm also despaired. It equalizes all cons. That's how it works. That's how I work; this is some kind of a life pattern.
                                     </p>
                                     <br/>
                                     <p>
-                                    I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down all useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more a less in their mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that's why I chose this place. Interesting, is it far from the station. I tried to make sense out of this map. I had a feeling likes this was not very accurate map.
+                                  I jumped around the document and unwrapped the map. I thoughtfully marked all spots I knew with a red marker. On the empty field I wrote down the useful information: phones, addresses, people. Especially people. I don't want to go nuts while I am there. So I will need a company. At least someone more or less with a clear mind. I decided to stay at a small hostel in Yellow brick district. Have no idea why it is called so. I imagine the whole district built of yellow bricks. This idea fascinated me, partially that was the reason why I chose this place. Interesting, is it far from the station? I tried to make sense out of this map. I had a feeling that this was not a very accurate one.
                                     </p>
                                     <br/>
                                     <p>
@@ -640,15 +629,15 @@ class Memos extends PureComponent {
                                     </p>
                                     <br/>
                                     <p>
-                                    Pyrrhon was the one who found the bravery to rebel. And they succeeded. The Cloud fell on the earth shattered in pieces. The network was broken. Authority was destroyed. But not everything was as they expected. People, who used to be part of the whole were left alone, cut out of the rest of the world. They became even more unhappy than they were. There were no mind communication, they had to learn to speak using their vocal cords again, they had to begin building a new world, they had to work hard to survive. Many of them lost their minds. They were shattered with the Cloud. Humanity lost 70% percent of their knowledge. They were thrown back in centuries in development. But humanity rapidly gained some of the lost knowledge because of people like me, who track quantum spots with lost memories and collect them then send to the Citadel to decipher and  analyze data. Most of the time it is just random remembrances of people, but sometimes we find useful information. History, technologies, art and music. Ah, I had never found a single piece of music. I wish I could, I heard these stories of  lucky QTrackhounds, who found the music. It is unbelievable what they tell about it. It is like a magic!
+                                  Pyrrhon was the one who found the bravery to rebel. And they succeeded. The Cloud fell on the earth shattered in pieces. The network was broken. Authority was destroyed. But not everything was as they expected. People, who used to be a part of the whole, were left alone, cut out of the rest of the world. They became even more unhappy than they were. There were no mind communication, they had to learn to speak using their vocal cords again, they had to begin building a new world, they had to work hard to survive. Many of them lost their minds. They were shattered with the Cloud. Humanity lost 70% percent of their knowledge. They were thrown back in centuries. But humanity rapidly gained some of the lost knowledge because of people like me, who track quantum spots with lost memories and collect them. Then we send these memories to the Citadel to decipher and analyze data. Most of the time it is just random remembrances of people, but sometimes we find useful information. History, technologies, art and music. Ah, I had never found a single piece of music. I wish I could, I heard these stories of  lucky QTrackhounds, who found the music. It is unbelievable what they tell about it. It is like a magic!
                                     </p>
                                     <br/>
                                     <p>
-                                    Finding these pieces helped people to reconstruct events of the Collapse. But still we have a lot of holes in the story. The only thing we are sure about that's it all started on the South. It explains the massive destructions and anomalies in that zone.
+                                  Finding these pieces helped people to reconstruct events of the Collapse. But still we have a lot of holes in the story. The only thing we are sure about that's it all started on the South. It explains the massive destructions and anomalies in that zone.
                                     </p>
                                     <br/>
                                     <p>
-                                    What about Pyrrhon? No one knows where they are now and if they even existed. The only thing I know, that I found only one mention of them in memory during my five year career. It was a legend like story that explains global cooling down of the earth. It is says that people used to control weather, calling different conditions according to approved perfect 30 days pattern. It was raining every Friday, can you imagine that? Pyrrhon, it is believed really liked snow. But it was rarely snowing back then. So, when the collapse happened, on the whole planet established permanent winter. Was it a conscious decision or accident the story does not explains. But f they exist and still alive, I bet they are happy now, because there is plenty of snow now.
+                                  What about Pyrrhon? No one knows where they are now and if they even existed. The only thing I know, that I found only one mention of them in memory during my five year career. It was a legend like story that explains global cooling down of the earth. It is says that people used to control weather, calling different conditions according to approved perfect 30 days pattern. It was raining every Friday, can you imagine that? Pyrrhon, it is believed really liked snow. But it was rarely snowing back then. So, when the collapse happened, on the whole planet established permanent winter. Was it a conscious decision or accident the story does not explain. But if they exist and still alive, I bet they are happy now, because there is plenty of snow around here.
                                     </p>
                                     <br/>
                                     <p>
@@ -704,7 +693,7 @@ class Memos extends PureComponent {
                                     </p>
                                     <br/>
                                     <p>
-                                    The steward looked back and caught my sight. They articulated me using only their mouth to go back in coupe. That feeling again. It was like a sudden knowledge that fell on me from a high cliff and landing with its feet right on my head. I knew this person. I saw this steward somewhere else. I saw pictures before my eyes. Some kind of hostel. There was another person. They smiled and drinked coffee. "Nice weather, eh?" they saluted me. Whute-curled person. I know them, I can remember, but I know. How? Did I see it in someone's memories? No, I don't think so. I was in hostel, but who was I? I heard the music.
+                                  The steward looked back and caught my sight. They articulated me using only their mouth to go back in coupe. That feeling again. It was like a sudden knowledge that fell on me from a high cliff and landed with its feet right on my head. I knew this person. I saw this steward somewhere else. I saw pictures before my eyes. Some kind of hostel. There was another person. They smiled and drunk coffee. "Nice weather, eh?" they saluted me. I heard the music.
                                     </p>
                                     <br/>
                                     <p>

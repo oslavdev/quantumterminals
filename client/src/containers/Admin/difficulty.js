@@ -96,19 +96,19 @@ constructor(props){
 
   easyIn(){
     $("#im").remove();
-    this.setState({description:"Good point to start. Not very challenging, it is quite possible to beat this without getting signs of nervous breakdown. You will improve your memory and pass to another difficulty.", asian:false})
+    this.setState({description:"Good point to start. Not very challenging. It is quite possible to beat this game without getting first signs of nervous breakdown. You will improve your memory and pass to another difficulty.", asian:false})
   }
   hardIn(){
     $("#im").remove();
-    this.setState({description:"You remember all phone numbers by heart and you was good at learning poems at school? Then this difficulty is probably for you. Challenging, but not impossible to beat.", asian:false})
+    this.setState({description:"You remember all phone numbers by heart and you were good at learning poems at school? Then this difficulty is probably for you. Challenging, but not impossible to beat.", asian:false})
   }
   extremeIn(){
     $("#im").remove();
-    this.setState({description:"Here is where the real challenge starts. When you beat the game on this difficulty you will obtain new neuro-networks in your brain and reduce risk of Alzheimer's desease for at least 30%.", asian:false})
+    this.setState({description:"Here is the real challenge starts. When you beat the game on this difficulty you will obtain new neuro-networks in your brain and reduce risk for Alzheimer's disease on at least 30%.", asian:false})
   }
   impossibleIn(){
     $("#im").remove();
-    this.setState({description:"You bet. If you beat this, you are probably a genious. You are working in NASA or something, why do you even want to play this game?", asian:false})
+    this.setState({description:"Well, you bet. If you beat this, you are probably a genius. You are working in NASA or something, why do you even want to play this game anyway?", asian:false})
   }
   AsianIn(){
     if (this.state.asian === false){
