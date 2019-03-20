@@ -30,9 +30,9 @@ ReactGA.initialize("UA-136438609-1");
 
 class Routes extends Component {
 
-    // componentDidMount(){
-    //     ReactGA.pageview(window.location.pathname + window.location.search);
-    // }
+    componentDidMount(){
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }
 
     render(){
         return(
