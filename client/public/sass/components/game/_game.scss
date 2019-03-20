@@ -406,3 +406,63 @@ margin: 0 45px 20px;
     color: $color-intro-black;
   }
 }
+
+/////////////////////////////////////// THE REDHAIRED GIRL
+.girlContainer{
+  width: 100%;
+  position: absolute;
+  z-index: 9999999;
+  bottom: 10%;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  padding: 1px 15px;
+}
+
+.girlWrapper{
+  width: 300px;
+  height: 300px;
+  margin-bottom: 73px;
+  img{
+    height: 100%;
+  }
+}
+
+.dialogueWrapper{
+  position: absolute;
+
+  background: #1d1d1d;
+
+  color: #1b1d1e;
+
+  width: 450px;
+
+  padding: 12px 15px;
+
+  font-size: 12px;
+
+  transform: skew(15deg);
+
+  z-index: 122222222;
+  bottom: 0;
+  &:before{
+    content: '';
+
+    background: #83afc2;
+
+    width: 450px;
+
+    transform: translateX(-10px);
+
+    height: 90px;
+
+    position: absolute;
+
+    z-index: -999999;
+  }
+}
+
+.dialogueTextContainer{
+    transform: skew(-15deg);
+}
